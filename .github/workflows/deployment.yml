@@ -1,0 +1,439 @@
+name: Build and Deployment 
+run-name: Build and Deploy to ${{ inputs.environment }} environment from ${{ github.ref_name }} branch
+
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Select the environment to deploy?
+        required: true
+        options:
+          - dev
+          - staging
+          - prod
+      alembic:
+        type: boolean
+        default: true
+        description: To run alembic migration?
+
+jobs:
+  Stage-Setup:
+    name: Stage Setup
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    env:
+      stage: ${{ github.event.inputs.environment }}
+      alembic: ${{ github.event.inputs.alembic }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Get Stage variable
+        shell: bash
+        run: |
+          stage="${{ env.stage }}"
+          if [[ "$stage" == "" ]]; then
+            stage="dev"
+          fi
+          echo "stage=$stage" >> $GITHUB_OUTPUT
+          echo Deployment will be in $stage Environment.
+        id: get-stage
+
+      - name: Get Alembic Value
+        shell: bash
+        run: |
+          alembic="${{ env.alembic }}"
+          if [[ "$alembic" == "" ]]; then
+            alembic="true"
+          fi
+          echo "alembic=$alembic" >> $GITHUB_OUTPUT
+        id: get-alembic
+
+    outputs:
+      stage: ${{ steps.get-stage.outputs.stage }}
+      alembic: ${{ steps.get-alembic.outputs.alembic }}
+
+  push-airflow-image-ecr:
+    name: Build image
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+        role-session-name: Github
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        USER: ${{ secrets.GIT_USER }}
+        PERSONAL_TOKEN: ${{ secrets.GIT_PERSONAL_TOKEN }}
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+        ECR_AIRFLOW_REPOSITORY: ${{ secrets.ECR_AIRFLOW_REPOSITORY }}
+      run: |
+        # Build a docker container and
+        # push it to ECR so that it can
+        # be deployed to ECS.
+        DOCKER_BUILDKIT=1 docker build --build-arg GIT_USER=$USER --build-arg PERSONAL_TOKEN=$PERSONAL_TOKEN -t $ECR_REGISTRY/$ECR_AIRFLOW_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_AIRFLOW_REPOSITORY:$IMAGE_TAG
+
+
+  Terraform-Plan:
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    env:
+      ENVIRONMENT: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, push-airflow-image-ecr]
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+          role-session-name: Github
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Install tf
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform plan
+        run: |
+          cd infra
+          terraform get -update
+          terraform init -upgrade
+          terraform fmt
+          terraform workspace select ${{ env.ENVIRONMENT }}
+          terraform plan -var-file ${{ env.ENVIRONMENT }}.tfvars -out plan-${{ env.ENVIRONMENT }}.tfplan
+
+      - name: Upload tf-plan
+        uses: actions/upload-artifact@v3
+        with:
+          name: plan-${{ env.ENVIRONMENT }}.tfplan
+          path: infra/plan-${{ env.ENVIRONMENT }}.tfplan
+          retention-days: 1
+
+  Terraform-Apply:
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    env:
+      ENVIRONMENT: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, Terraform-Plan]
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+          role-session-name: Github
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Install tf
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Download tf-plan
+        uses: actions/download-artifact@v3
+        with:
+          name: plan-${{ env.ENVIRONMENT }}.tfplan
+          path: infra/
+
+      - name: Terraform apply
+        run: |
+          cd infra
+          terraform get -update
+          terraform init
+          terraform workspace select ${{ env.ENVIRONMENT }}
+          terraform apply -input=false "plan-${{ env.ENVIRONMENT }}.tfplan"
+
+  deploy-alembic-migration:
+    name: Alembic
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, Terraform-Apply, push-airflow-image-ecr]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+        role-session-name: Github
+        aws-region: ${{ secrets.AWS_REGION }}
+    
+    - name: Download task definition
+      env:
+        TASK_DEFINITION_NAME: ${{ secrets.ALEMBIC_TASK_DEFINITION_NAME }}
+      run: |
+        aws ecs describe-task-definition --task-definition $TASK_DEFINITION_NAME  --query taskDefinition > task-definition.json
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Fill in the new image ID in the Alembic ECS task definition
+      id: task-def-alembic
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        container-name: ${{ secrets.ALEMBIC_CONTAINER_NAME }}
+        image: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_AIRFLOW_REPOSITORY }}:${{ github.sha }}"
+
+    - name: Creating Alembic Task Revision on Amazon ECS
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def-alembic.outputs.task-definition }}
+
+    - name: Run Alembic Task on Amazon ECS
+      id: run-alembic-task
+      uses: geekcell/github-action-aws-ecs-run-task@v1.0.0
+      with:
+        cluster: ${{ secrets.ECS_AIRFLOW_CLUSTER }}
+        task-definition: ${{ secrets.ALEMBIC_TASK_DEFINITION_NAME }}
+        assign-public-ip: 'DISABLED'
+        subnet-ids: ${{ secrets.SUBNET_IDS }}
+        security-group-ids: ${{ secrets.SECURITY_GROUP_IDS }}
+      
+  deploy-on-scheduler:
+    name: Scheduler
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, Terraform-Apply, push-airflow-image-ecr]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+        role-session-name: Github
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Download task definition
+      env:
+        TASK_DEFINITION_NAME: ${{ secrets.SCHEDULER_TASK_DEFINITION_NAME }}
+      run: |
+        aws ecs describe-task-definition --task-definition $TASK_DEFINITION_NAME  --query taskDefinition > task-definition.json
+
+    - name: Create new revision for Task definition for Airflow Scheduler
+      id: task-def-scheduler
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        container-name: ${{ secrets.SCHEDULER_CONTAINER_NAME}}
+        image: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_AIRFLOW_REPOSITORY }}:${{ github.sha }}"
+
+    - name: Update Scheduler Service with new Task Definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def-scheduler.outputs.task-definition }}
+        service: ${{ secrets.ECS_SERVICE_SCHEDULER }}
+        cluster: ${{ secrets.ECS_AIRFLOW_CLUSTER }}
+        wait-for-service-stability: true
+  
+  deploy-on-webserver:
+    name: Webserver
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, Terraform-Apply, push-airflow-image-ecr]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+        role-session-name: Github
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Download task definition
+      env:
+        TASK_DEFINITION_NAME: ${{ secrets.WEBSERVER_TASK_DEFINITION_NAME }}
+      run: |
+        aws ecs describe-task-definition --task-definition $TASK_DEFINITION_NAME  --query taskDefinition > task-definition.json
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Create new revision for Task definition for Airflow Webserver
+      id: task-def-webserver
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        container-name: ${{ secrets.WEBSERVER_CONTAINER_NAME }}
+        image: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_AIRFLOW_REPOSITORY }}:${{ github.sha }}"
+        
+    - name: Update Webserver Service with new Task Definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def-webserver.outputs.task-definition }}
+        service: ${{ secrets.ECS_SERVICE_WEBSERVER }}
+        cluster: ${{ secrets.ECS_AIRFLOW_CLUSTER }}
+        wait-for-service-stability: true
+
+  deploy-on-triggerer:
+    name: Triggerer
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, Terraform-Apply, push-airflow-image-ecr]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+        role-session-name: Github
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Download task definition
+      env:
+        TASK_DEFINITION_NAME: ${{ secrets.TRIGGERER_TASK_DEFINITION_NAME }}
+      run: |
+        aws ecs describe-task-definition --task-definition $TASK_DEFINITION_NAME  --query taskDefinition > task-definition.json
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Create new revision for Task definition for Airflow Triggerer
+      id: task-def-triggerer
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        container-name: ${{ secrets.TRIGGERER_CONTAINER_NAME }}
+        image: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_AIRFLOW_REPOSITORY }}:${{ github.sha }}"
+        
+    - name: Update Triggerer Service with new Task Definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def-triggerer.outputs.task-definition }}
+        service: ${{ secrets.ECS_SERVICE_TRIGGERER }}
+        cluster: ${{ secrets.ECS_AIRFLOW_CLUSTER }}
+        wait-for-service-stability: true
+  
+  deploy-on-internal-api:
+    name: Internal-API
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, Terraform-Apply, push-airflow-image-ecr]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+        role-session-name: Github
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Download task definition
+      env:
+        TASK_DEFINITION_NAME: ${{ secrets.INTERNAL_API_TASK_DEFINITION_NAME }}
+      run: |
+        aws ecs describe-task-definition --task-definition $TASK_DEFINITION_NAME  --query taskDefinition > task-definition.json
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Create new revision for Task definition for Internal API
+      id: task-def-internal-api
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        container-name: ${{ secrets.INTERNAL_API_CONTAINER_NAME }}
+        image: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_AIRFLOW_REPOSITORY }}:${{ github.sha }}"
+        
+    - name: Update Internal API Service with new Task Definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def-internal-api.outputs.task-definition }}
+        service: ${{ secrets.ECS_SERVICE_INTERNAL_API }}
+        cluster: ${{ secrets.ECS_AIRFLOW_CLUSTER }}
+        wait-for-service-stability: true
+
+  deploy-on-golang-app:
+    name: Golang-app
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: ${{ needs.Stage-Setup.outputs.stage }}
+    needs: [Stage-Setup, Terraform-Apply, push-airflow-image-ecr]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: ${{ secrets.SCRIBE2_GITHUB_ROLE }}
+        role-session-name: Github
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Download task definition
+      env:
+        TASK_DEFINITION_NAME: ${{ secrets.GOLANG_APP_TASK_DEFINITION_NAME }}
+      run: |
+        aws ecs describe-task-definition --task-definition $TASK_DEFINITION_NAME  --query taskDefinition > task-definition.json
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Create new revision for Task definition for Airflow Webserver
+      id: task-def-go-lang-app
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: task-definition.json
+        container-name: ${{ secrets.GOLANG_APP_CONTAINER_NAME }}
+        image: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_AIRFLOW_REPOSITORY }}:${{ github.sha }}"
+        
+    - name: Update go-app Service with new Task Definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def-go-lang-app.outputs.task-definition }}
+        service: ${{ secrets.ECS_SERVICE_GOLANG_APP }}
+        cluster: ${{ secrets.ECS_AIRFLOW_CLUSTER }}
+        wait-for-service-stability: true

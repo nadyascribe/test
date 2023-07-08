@@ -1,0 +1,30 @@
+{
+  "environment": "staging",
+  "filetransfers": {
+    "bucket_name": "scribe-staging-file-transfers",
+    "mixpanel_token": "fb4563919cb4be6de53563faabedc901",
+    "default_region": "us-west-2"
+  },
+  "postgres": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "airflow",
+    "password": "airflow",
+    "database": "airflow"
+  },
+  "auth0": {
+    "audiences": {
+      "scribe_hub": "api.staging.scribesecurity.com",
+      "scribe_backend": "api.staging.scribesecurity.com"
+    },
+    "domain": "scribe-hub-staging.us.auth0.com"
+  },
+  "github": {
+    "v3ApiUrl": "https://api.github.com/",
+    "app": {
+      "integrationId": 271287,
+      "webhookSecret": "local123123",
+      "privateKey": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAtiYn4sf25zPuCXifBTCmSvCGhXiMf+FVbFI7HiX2YMM+XgNO\nLEpnphtjxmfOD1lQCZqpulYsGIYpCiMvpg6HlGgUI1+t0MvQLPbaiUuiXbzcOQ7j\nd1lJ9ytT1gegu6jykWeD8ix8RG2+8SdRR76wxEJT4z69dVCiG7dW0HK1+tY2CEPg\nIFcydribSF74UEeiWy44fexLS1LQq58+WlbyRzvVU18qFX0lCr8QRqTufCEhDbdS\nkbkYVaHopzap18vXmi/sX+7CY9TQ45Q8MrXcwce+X2dPwU/ZANq/YFtKpg1Ilugi\nfMxzrV0nR81VQr6eISGLQ1+6L9ZINtL0xVAZZwIDAQABAoIBAQCRLao+w9iUALzq\nCZzdWyA/vKPLgACj8GrQkl4SMnnEN/nens3Q2WDxcQU+XwBLFYmIjiBXp1UwGsZd\nERxqQ0xmyem7JAh60efT3tDh+0mnYt84DxjXyG/+tCb3AU9oI0lrAVGWVUSamcpF\nlWvgPinP03nfNuN0vNboNmHYdIV9LaL30Z4XeNTmAGVsaNZMrRm0AjUepFQskcGx\nbQTQAi8W5J0mbsXPPC31+393qqYAzACG0cbLz/DwuUS5ugdongUm1hTX+bM+1F7s\nRIyHTUNSEuMIWiKdhv60SesLrF8jyJ/reaSB0HJtW3+sNbPs+w6gzR/kBIsTLgJ1\nAgidLgVBAoGBAO/FhXd/+oDRPmBBaCmdy89ZmwQxr9NkTTQNWg2CEQgn2zmXrqsU\nEaVeQ4ViDXCI5FG+ymGzKpijUbEF6DX6vr2CBdjlSqqZ8kFsG+d5T/WBjCtBbZiN\n1VQXR9K7a4Gse5SI0PyeCUiLHXKBVIPjWCHaHI8tUHnvOYptalgOnyMHAoGBAMJ6\nOCw2VLQfR18eXB7uxJ7rJhgjRuYAleORbmbLSmI6r9JjWb+dTITc8NMQLhggU3hY\n27YLqAEkOX/SIDTusUJ5TfUVToWJk6+jXYddwbHVg5Qe4Fu/G6LWCShb9HOf29sY\naLWSrPnU1sv2h1LuJRWgz4Me6dY7Ye/YQYx4jd6hAoGAfQzDIyP3/h8jLQhvzuSh\nWy8cjf9r+BAjw7YC9XCUeXBwAYV+b3M0EM8s3+/Xmo2Kpqee3X2YBauH+49dIGn5\n+NRLQGe1nWxU0JIVq4+1iBFcjWK+SgYO8KCDsQBWfXb7rOf+NwIlTVRgs0uITJDR\ncjZTFslHY5DErdGK2QonLRkCgYA2ltAFuQp1tQH3tTHujN8sLJ140Q4pqahpRH1U\n5WNvx0FrMPAUVTcRZGNFG5mUtB45/ddOdl8mUuDA/F6F/SpMmnhDf0OXQFLwTk8G\nnE6ueFyCy1f26OH9B09ywL0RZ6HzEhryPMXJKvFQN1cs9CP8ujMFfzvsIqcPCAj+\nQSixgQKBgQCrsx8w1HMb7nyunNWgSXQDxeYcVBaFA9JAXQHM64jeQKGHcQTxT1Ts\nbMs6M8SZobCOhELz3cfITkAFqZ8bXqVJ9Hjz8E4+EAvEwHvqYshSg/PiJFFMXsxv\nqRTVEDSItET7DSdKTsXCzsioUeGGwRL9agK/CbcaNopdIagSG6AYpQ==\n-----END RSA PRIVATE KEY-----"
+    }
+  }
+}

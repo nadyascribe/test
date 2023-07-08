@@ -1,0 +1,51 @@
+name: "Run python checks"
+description: "Runs python code checks (tests, linters, ...)"
+
+inputs:
+  postgres-connection-string:
+    required: true
+    description: "Connection string to postgres database server"
+
+runs:
+
+  using: composite
+
+  steps:
+    # Downloads a copy of the code in your repository before running CI tests
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10.10'
+
+    - name: setup requirements
+      shell: bash
+      run: pip install -r etl/requirements.txt
+# disabled because of unstable formatters
+    # - name: check formatters
+    #   shell: bash
+    #   run: |
+    #     make format-py
+    #     make git-status
+# disabled because of unstable linters
+#    - name: run linters
+#      shell: bash
+#      run: |
+#        make lint-py
+#        make git-status
+        
+
+    - name: run tests
+      shell: bash
+      env:
+        AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${{ inputs.postgres-connection-string }}
+      run: |
+        (cd etl && pytest --junitxml=coverage.xml --cov=dags -v tests/integrations | tee pytest-coverage.txt)
+
+    - name: Pytest coverage comment
+      uses: MishaKav/pytest-coverage-comment@main
+      with:
+        pytest-coverage-path: ./etl/pytest-coverage.txt
+        title: Coverage report
+        hide-badge: true
+        hide-report: false
+        junitxml-path: ./etl/pytest.xml

@@ -1,0 +1,48 @@
+.idea
+etl/.pytest_cache
+.pytest_cache
+etl/logs
+__pycache__
+etl/dags/tools/*.bin
+etl/conns.json
+etl/shared
+etl/.mypy_cache
+venv
+.python-version
+.vscode/
+*.env_local
+build
+etl/local_attestations
+
+# Compiled files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info*.terraform.lock.hcl
+# logs
+*.log
+.terraform.lock.hcl
+# Directories
+.terraform/
+
+# SSH Keys
+*.pem
+
+# Backup files
+*.bak
+
+# Ignored Terraform files
+*gitignore*.tf
+
+# Ignore Mac .DS_Store files
+.DS_Store
+
+# Ignored vscode files
+.vscode/
+
+*.ipynb
+
+.envrc
+.coverage
+htmlcov
+
+**/.tmp

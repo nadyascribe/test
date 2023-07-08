@@ -1,0 +1,1260 @@
+{
+  "velnerability_fixtures": [
+    {
+      "id": "CVE-2002-1647",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-1647':3 '-2002':2 'cve':1"
+    },
+    {
+      "id": "CVE-2009-4590",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2009':2 '-4590':3 'cve':1"
+    },
+    {
+      "id": "CVE-2009-4591",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2009':2 '-4591':3 'cve':1"
+    },
+    {
+      "id": "CVE-2009-4592",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2009':2 '-4592':3 'cve':1"
+    },
+    {
+      "id": "CVE-2013-1779",
+      "publishedOn": null,
+      "severity": 2.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-1779':3 '-2013':2 'cve':1"
+    },
+    {
+      "id": "CVE-2014-1936",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-1936':3 '-2014':2 'cve':1"
+    },
+    {
+      "id": "CVE-2014-2980",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2014':2 '-2980':3 'cve':1"
+    },
+    {
+      "id": "CVE-2014-8180",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2014':2 '-8180':3 'cve':1"
+    },
+    {
+      "id": "CVE-2015-0903",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-0903':3 '-2015':2 'cve':1"
+    },
+    {
+      "id": "CVE-2017-18589",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-18589':3 '-2017':2 'cve':1"
+    },
+    {
+      "id": "CVE-2017-2665",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2017':2 '-2665':3 'cve':1"
+    },
+    {
+      "id": "CVE-2018-0734",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-0734':3 '-2018':2 'cve':1"
+    },
+    {
+      "id": "CVE-2018-0735",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-0735':3 '-2018':2 'cve':1"
+    },
+    {
+      "id": "CVE-2018-1000517",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-1000517':3 '-2018':2 'cve':1"
+    },
+    {
+      "id": "CVE-2018-12121",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-12121':3 '-2018':2 'cve':1"
+    },
+    {
+      "id": "CVE-2018-12122",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-12122':3 '-2018':2 'cve':1"
+    },
+    {
+      "id": "CVE-2018-12123",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-12123':3 '-2018':2 'cve':1"
+    },
+    {
+      "id": "CVE-2018-20353",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2018':2 '-20353':3 'cve':1"
+    },
+    {
+      "id": "CVE-2018-20354",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2018':2 '-20354':3 'cve':1"
+    },
+    {
+      "id": "CVE-2018-20355",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2018':2 '-20355':3 'cve':1"
+    },
+    {
+      "id": "CVE-2018-20356",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2018':2 '-20356':3 'cve':1"
+    },
+    {
+      "id": "CVE-2018-20679",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2018':2 '-20679':3 'cve':1"
+    },
+    {
+      "id": "CVE-2018-25032",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2018':2 '-25032':3 'cve':1"
+    },
+    {
+      "id": "CVE-2018-25076",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2018':2 '-25076':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-10773",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-10773':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-12951",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-12951':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-14697",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-14697':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-15604",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-15604':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-15605",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-15605':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-15606",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-15606':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-15608",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-15608':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-16775",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-16775':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-16776",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-16776':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-16777",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-16777':3 '-2019':2 'cve':1"
+    },
+    {
+      "id": "CVE-2019-5448",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-5448':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-5737",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-5737':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-5747",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-5747':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9511",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9511':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9512",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9512':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9513",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9513':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9514",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9514':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9515",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9515':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9516",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9516':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9517",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9517':3 'cve':1"
+    },
+    {
+      "id": "CVE-2019-9518",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2019':2 '-9518':3 'cve':1"
+    },
+    {
+      "id": "CVE-2020-10531",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-10531':3 '-2020':2 'cve':1"
+    },
+    {
+      "id": "CVE-2020-11080",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-11080':3 '-2020':2 'cve':1"
+    },
+    {
+      "id": "CVE-2020-1416",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-1416':3 '-2020':2 'cve':1"
+    },
+    {
+      "id": "CVE-2020-15095",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-15095':3 '-2020':2 'cve':1"
+    },
+    {
+      "id": "CVE-2020-17753",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-17753':3 '-2020':2 'cve':1"
+    },
+    {
+      "id": "CVE-2020-1971",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-1971':3 '-2020':2 'cve':1"
+    },
+    {
+      "id": "CVE-2020-36634",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2020':2 '-36634':3 'cve':1"
+    },
+    {
+      "id": "CVE-2020-8131",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2020':2 '-8131':3 'cve':1"
+    },
+    {
+      "id": "CVE-2020-8174",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2020':2 '-8174':3 'cve':1"
+    },
+    {
+      "id": "CVE-2020-8252",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2020':2 '-8252':3 'cve':1"
+    },
+    {
+      "id": "CVE-2020-8265",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2020':2 '-8265':3 'cve':1"
+    },
+    {
+      "id": "CVE-2020-8287",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2020':2 '-8287':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-22883",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-22883':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-22884",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-22884':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-23362",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-23362':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-23840",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-23840':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-32036",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-32036':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-3449",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-3449':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-3918",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-3918':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42374",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42374':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42376",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42376':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42378",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42378':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42379",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42379':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42380",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42380':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42381",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42381':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42382",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42382':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42384",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42384':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42385",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42385':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-42386",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-42386':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-44531",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-44531':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-44532",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-44532':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-44533",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-44533':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-25299",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-25299':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-28391",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-28391':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-37599",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-37599':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-37601",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-37601':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-37603",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-37603':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-38900",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-38900':3 'cve':1"
+    },
+    {
+      "id": "GHSA-2mj8-pj3j-h362",
+      "publishedOn": null,
+      "severity": 2.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'2mj8':3 'ghsa':2 'ghsa-2mj8-pj3j-h362':1 'h362':5 'pj3j':4"
+    },
+    {
+      "id": "GHSA-3jfq-g458-7qm9",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'3jfq':3 '7qm9':5 'g458':4 'ghsa':2 'ghsa-3jfq-g458-7qm9':1"
+    },
+    {
+      "id": "GHSA-3rfm-jhwj-7488",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'3rfm':3 '7488':5 'ghsa':2 'ghsa-3rfm-jhwj':1 'jhwj':4"
+    },
+    {
+      "id": "GHSA-4328-8hgf-7wjr",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-4328':2 '-8':3 '7wjr':6 'ghsa':1 'hgf':5 'hgf-7wjr':4"
+    },
+    {
+      "id": "GHSA-43f8-2h32-f4cj",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'2h32':4 '43f8':3 'f4cj':5 'ghsa':2 'ghsa-43f8-2h32-f4cj':1"
+    },
+    {
+      "id": "GHSA-45q2-34rf-mr94",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'34rf':4 '45q2':3 'ghsa':2 'ghsa-45q2-34rf-mr94':1 'mr94':5"
+    },
+    {
+      "id": "GHSA-4wf5-vphf-c2xc",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'4wf5':3 'c2xc':5 'ghsa':2 'ghsa-4wf5-vphf-c2xc':1 'vphf':4"
+    },
+    {
+      "id": "GHSA-4xcv-9jjx-gfj3",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'4xcv':3 '9jjx':4 'gfj3':5 'ghsa':2 'ghsa-4xcv-9jjx-gfj3':1"
+    },
+    {
+      "id": "GHSA-5955-9wpr-37jh",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-5955':2 '-9':3 '37jh':6 'ghsa':1 'wpr':5 'wpr-37jh':4"
+    },
+    {
+      "id": "GHSA-5xf4-f2fq-f69j",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'5xf4':3 'f2fq':4 'f69j':5 'ghsa':2 'ghsa-5xf4-f2fq-f69j':1"
+    },
+    {
+      "id": "GHSA-76p3-8jx3-jpfq",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'76p3':3 '8jx3':4 'ghsa':2 'ghsa-76p3-8jx3-jpfq':1 'jpfq':5"
+    },
+    {
+      "id": "GHSA-776f-qx25-q3cc",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'776f':3 'ghsa':2 'ghsa-776f-qx25-q3cc':1 'q3cc':5 'qx25':4"
+    },
+    {
+      "id": "GHSA-896r-f27r-55mw",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'55mw':5 '896r':3 'f27r':4 'ghsa':2 'ghsa-896r-f27r-55mw':1"
+    },
+    {
+      "id": "GHSA-8cf7-32gw-wr33",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'32gw':4 '8cf7':3 'ghsa':2 'ghsa-8cf7-32gw-wr33':1 'wr33':5"
+    },
+    {
+      "id": "GHSA-8mfc-v7wv-p62g",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'8mfc':3 'ghsa':2 'ghsa-8mfc-v7wv-p62g':1 'p62g':5 'v7wv':4"
+    },
+    {
+      "id": "GHSA-93f3-23rq-pjfp",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'23rq':4 '93f3':3 'ghsa':2 'ghsa-93f3-23rq-pjfp':1 'pjfp':5"
+    },
+    {
+      "id": "GHSA-93q8-gq69-wqmw",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'93q8':3 'ghsa':2 'ghsa-93q8-gq69-wqmw':1 'gq69':4 'wqmw':5"
+    },
+    {
+      "id": "GHSA-9c47-m6qq-7p4h",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'7p4h':5 '9c47':3 'ghsa':2 'ghsa-9c47-m6qq-7p4h':1 'm6qq':4"
+    },
+    {
+      "id": "GHSA-9r2w-394v-53qc",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'394v':4 '53qc':5 '9r2w':3 'ghsa':2 'ghsa-9r2w-394v-53qc':1"
+    },
+    {
+      "id": "GHSA-c4w7-xm78-47vh",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'47vh':5 'c4w7':3 'ghsa':2 'ghsa-c4w7-xm78-47vh':1 'xm78':4"
+    },
+    {
+      "id": "GHSA-c6rq-rjc2-86v2",
+      "publishedOn": null,
+      "severity": 2.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'86v2':5 'c6rq':3 'ghsa':2 'ghsa-c6rq-rjc2-86v2':1 'rjc2':4"
+    },
+    {
+      "id": "GHSA-f825-f98c-gj3g",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'f825':3 'f98c':4 'ghsa':2 'ghsa-f825-f98c-gj3g':1 'gj3g':5"
+    },
+    {
+      "id": "GHSA-f8q6-p94x-37v3",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'37v3':5 'f8q6':3 'ghsa':2 'ghsa-f8q6-p94x-37v3':1 'p94x':4"
+    },
+    {
+      "id": "GHSA-ff7x-qrg7-qggm",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ff7x':3 'ghsa':2 'ghsa-ff7x-qrg7-qggm':1 'qggm':5 'qrg7':4"
+    },
+    {
+      "id": "GHSA-gqf6-75v8-vr26",
+      "publishedOn": null,
+      "severity": 2.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'75v8':4 'ghsa':2 'ghsa-gqf6-75v8-vr26':1 'gqf6':3 'vr26':5"
+    },
+    {
+      "id": "GHSA-hhq3-ff78-jv3g",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ff78':4 'ghsa':2 'ghsa-hhq3-ff78-jv3g':1 'hhq3':3 'jv3g':5"
+    },
+    {
+      "id": "GHSA-hj48-42vr-x3v9",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'42vr':4 'ghsa':2 'ghsa-hj48-42vr-x3v9':1 'hj48':3 'x3v9':5"
+    },
+    {
+      "id": "GHSA-hjrf-2m68-5959",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'2m68':4 '5959':5 'ghsa':2 'ghsa-hjrf-2m68':1 'hjrf':3"
+    },
+    {
+      "id": "GHSA-hjxc-462x-x77j",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'462x':4 'ghsa':2 'ghsa-hjxc-462x-x77j':1 'hjxc':3 'x77j':5"
+    },
+    {
+      "id": "GHSA-hrpp-h998-j3pp",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ghsa':2 'ghsa-hrpp-h998-j3pp':1 'h998':4 'hrpp':3 'j3pp':5"
+    },
+    {
+      "id": "GHSA-hxcc-f52p-wc94",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'f52p':4 'ghsa':2 'ghsa-hxcc-f52p-wc94':1 'hxcc':3 'wc94':5"
+    },
+    {
+      "id": "GHSA-j44m-qm6p-hp7m",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ghsa':2 'ghsa-j44m-qm6p-hp7m':1 'hp7m':5 'j44m':3 'qm6p':4"
+    },
+    {
+      "id": "GHSA-jmqm-f2gx-4fjv",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'4fjv':5 'f2gx':4 'ghsa':2 'ghsa-jmqm-f2gx-4fjv':1 'jmqm':3"
+    },
+    {
+      "id": "GHSA-m6cx-g6qm-p2cx",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'g6qm':4 'ghsa':2 'ghsa-m6cx-g6qm-p2cx':1 'm6cx':3 'p2cx':5"
+    },
+    {
+      "id": "GHSA-p6mc-m468-83gw",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'83gw':5 'ghsa':2 'ghsa-p6mc-m468-83gw':1 'm468':4 'p6mc':3"
+    },
+    {
+      "id": "GHSA-p8p7-x288-28g6",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'28g6':5 'ghsa':2 'ghsa-p8p7-x288-28g6':1 'p8p7':3 'x288':4"
+    },
+    {
+      "id": "GHSA-p92x-r36w-9395",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'9395':5 'ghsa':2 'ghsa-p92x-r36w':1 'p92x':3 'r36w':4"
+    },
+    {
+      "id": "GHSA-p9pc-299p-vxgp",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'299p':4 'ghsa':2 'ghsa-p9pc-299p-vxgp':1 'p9pc':3 'vxgp':5"
+    },
+    {
+      "id": "GHSA-pc5p-h8pf-mvwp",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ghsa':2 'ghsa-pc5p-h8pf-mvwp':1 'h8pf':4 'mvwp':5 'pc5p':3"
+    },
+    {
+      "id": "GHSA-pfrx-2q88-qq97",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'2q88':4 'ghsa':2 'ghsa-pfrx-2q88-qq97':1 'pfrx':3 'qq97':5"
+    },
+    {
+      "id": "GHSA-pp7h-53gx-mx7r",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'53gx':4 'ghsa':2 'ghsa-pp7h-53gx-mx7r':1 'mx7r':5 'pp7h':3"
+    },
+    {
+      "id": "GHSA-pw54-mh39-w3hc",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ghsa':2 'ghsa-pw54-mh39-w3hc':1 'mh39':4 'pw54':3 'w3hc':5"
+    },
+    {
+      "id": "GHSA-qq89-hq3f-393p",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'393p':5 'ghsa':2 'ghsa-qq89-hq3f-393p':1 'hq3f':4 'qq89':3"
+    },
+    {
+      "id": "GHSA-qqgx-2p2h-9c37",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'2p2h':4 '9c37':5 'ghsa':2 'ghsa-qqgx-2p2h-9c37':1 'qqgx':3"
+    },
+    {
+      "id": "GHSA-qwph-4952-7xr6",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-7':5 '4952':4 'ghsa':2 'ghsa-qwph':1 'qwph':3 'xr6':6"
+    },
+    {
+      "id": "GHSA-r628-mhmh-qjhw",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ghsa':2 'ghsa-r628-mhmh-qjhw':1 'mhmh':4 'qjhw':5 'r628':3"
+    },
+    {
+      "id": "GHSA-r683-j2x4-v87g",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ghsa':2 'ghsa-r683-j2x4-v87g':1 'j2x4':4 'r683':3 'v87g':5"
+    },
+    {
+      "id": "GHSA-r9p9-mrjm-926w",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'926w':5 'ghsa':2 'ghsa-r9p9-mrjm-926w':1 'mrjm':4 'r9p9':3"
+    },
+    {
+      "id": "GHSA-rrc9-gqf8-8rwg",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'8rwg':5 'ghsa':2 'ghsa-rrc9-gqf8-8rwg':1 'gqf8':4 'rrc9':3"
+    },
+    {
+      "id": "GHSA-v45m-2wcp-gg98",
+      "publishedOn": null,
+      "severity": 2.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'2wcp':4 'gg98':5 'ghsa':2 'ghsa-v45m-2wcp-gg98':1 'v45m':3"
+    },
+    {
+      "id": "GHSA-v88g-cgmw-v5xw",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'cgmw':4 'ghsa':2 'ghsa-v88g-cgmw-v5xw':1 'v5xw':5 'v88g':3"
+    },
+    {
+      "id": "GHSA-vh7m-p724-62c2",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'62c2':5 'ghsa':2 'ghsa-vh7m-p724-62c2':1 'p724':4 'vh7m':3"
+    },
+    {
+      "id": "GHSA-vh95-rmgr-6w4m",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'6w4m':5 'ghsa':2 'ghsa-vh95-rmgr-6w4m':1 'rmgr':4 'vh95':3"
+    },
+    {
+      "id": "GHSA-vx3p-948g-6vhq",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'6vhq':5 '948g':4 'ghsa':2 'ghsa-vx3p-948g-6vhq':1 'vx3p':3"
+    },
+    {
+      "id": "GHSA-w573-4hg7-7wgq",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'4hg7':4 '7wgq':5 'ghsa':2 'ghsa-w573-4hg7-7wgq':1 'w573':3"
+    },
+    {
+      "id": "GHSA-w7rc-rwvf-8q5r",
+      "publishedOn": null,
+      "severity": 2.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'8q5r':5 'ghsa':2 'ghsa-w7rc-rwvf-8q5r':1 'rwvf':4 'w7rc':3"
+    },
+    {
+      "id": "GHSA-w8qv-6jwh-64r5",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'64r5':5 '6jwh':4 'ghsa':2 'ghsa-w8qv-6jwh-64r5':1 'w8qv':3"
+    },
+    {
+      "id": "GHSA-wqfc-cr59-h64p",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'cr59':4 'ghsa':2 'ghsa-wqfc-cr59-h64p':1 'h64p':5 'wqfc':3"
+    },
+    {
+      "id": "GHSA-ww39-953v-wcq6",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'953v':4 'ghsa':2 'ghsa-ww39-953v-wcq6':1 'wcq6':5 'ww39':3"
+    },
+    {
+      "id": "GHSA-x8qc-rrcw-4r46",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'4r46':5 'ghsa':2 'ghsa-x8qc-rrcw-4r46':1 'rrcw':4 'x8qc':3"
+    },
+    {
+      "id": "GHSA-xf7w-r453-m56c",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'ghsa':2 'ghsa-xf7w-r453-m56c':1 'm56c':5 'r453':4 'xf7w':3"
+    },
+    {
+      "id": "GHSA-xgh6-85xh-479p",
+      "publishedOn": null,
+      "severity": 2.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'479p':5 '85xh':4 'ghsa':2 'ghsa-xgh6-85xh-479p':1 'xgh6':3"
+    },
+    {
+      "id": "GHSA-xvch-5gv4-984h",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'5gv4':4 '984h':5 'ghsa':2 'ghsa-xvch-5gv4-984h':1 'xvch':3"
+    },
+    {
+      "id": "CVE-2021-27478",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-27478':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-27482",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-27482':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-27498",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-27498':3 'cve':1"
+    },
+    {
+      "id": "CVE-2021-27500",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2021':2 '-27500':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-37434",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-37434':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-43604",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-43604':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-43605",
+      "publishedOn": null,
+      "severity": 10.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-43605':3 'cve':1"
+    },
+    {
+      "id": "CVE-2022-43606",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2022':2 '-43606':3 'cve':1"
+    },
+    {
+      "id": "GHSA-29mw-wpgm-hmr9",
+      "publishedOn": null,
+      "severity": 5.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'29mw':3 'ghsa':2 'ghsa-29mw-wpgm-hmr9':1 'hmr9':5 'wpgm':4"
+    },
+    {
+      "id": "GHSA-35jh-r3h4-6jhm",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'35jh':3 '6jhm':5 'ghsa':2 'ghsa-35jh-r3h4-6jhm':1 'r3h4':4"
+    },
+    {
+      "id": "GHSA-rc47-6667-2j5j",
+      "publishedOn": null,
+      "severity": 8.0,
+      "cvssScore": null,
+      "epssProbability": null,
+      "txt": "'-2':5 '6667':4 'ghsa':2 'ghsa-rc47':1 'j5j':6 'rc47':3"
+    }
+  ]
+}

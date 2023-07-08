@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "osint-local": {
+      "Name": "Airflow Local",
+      "Group": "Servers",
+      "Port": 5432,
+      "Username": "osint",
+      "Host": "postgres",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "postgres"
+    }
+  }
+}

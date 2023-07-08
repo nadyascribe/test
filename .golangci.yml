@@ -1,0 +1,135 @@
+linters-settings:
+  depguard:
+    list-type: blacklist
+    include-go-root: true
+    include-go-std-lib: true
+  funlen:
+    lines: 100
+    statements: 50
+  gci:
+    no-inline-comments: false
+    no-prefix-comments: true
+    sections:
+      - standard
+      - default
+      - prefix(github.com/scribe-security/scribe)
+    skip-generated: true
+    section-separators:
+      - newLine
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+    disabled-checks:
+      - dupImport # https://github.com/go-critic/go-critic/issues/845
+      - ifElseChain
+      - octalLiteral
+      - whyNoLint
+      - wrapperFunc
+  gocyclo:
+    min-complexity: 15
+  goimports:
+    local-prefixes: github.com/scribe-security/scribe
+  gomnd:
+    settings:
+      mnd:
+        # don't include the "operation" and "assign"
+        checks: argument,case,condition,return
+  govet:
+    check-shadowing: true
+  lll:
+    line-length: 140
+  maligned:
+    suggest-new: true
+  misspell:
+    locale: US
+  nolintlint:
+    allow-leading-space: true # don't require machine-readable nolint directives (i.e. with no leading space)
+    allow-unused: false # report any unused nolint directives
+    require-explanation: false # don't require an explanation for nolint directives
+    require-specific: false # don't require nolint directives to be specific about which linter is being skipped
+  dupl:
+    # tokens count to trigger issue, 150 by default
+    threshold: 250
+  gofumpt:
+    lang-version: "1.20.1"
+    module-path: github.com/scribe-security/scribe
+
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - depguard
+    - dogsled
+    - dupl
+    - errcheck
+    - exportloopref
+    - exhaustive
+    - funlen
+    - goconst
+    - gocritic
+    - gocyclo
+    - gci
+    - gomnd
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - lll
+    - misspell
+    - nakedret
+    - noctx
+    - nolintlint
+    - staticcheck
+    - stylecheck
+    - typecheck
+    - unconvert
+    - unused
+    - unparam
+    - unused
+    - whitespace
+    - gofumpt
+    - revive
+    - gocognit
+    - prealloc
+    - goimports
+    - gofmt
+
+  # don't enable:
+  # - asciicheck
+  # - scopelint
+  # - gochecknoglobals
+  # - gocognit (@mrsufgi: reconsidered)
+  # - godot
+  # - godox
+  # - goerr113
+  # - interfacer
+  # - maligned
+  # - nestif
+  # - testpackage
+  # - golint (replaced by revive)
+  # - wsl
+  # - goimports
+  # - gofmt
+
+issues:
+  # List of regexps of issue texts to exclude, empty list by default.
+  # But independently from this option we use default exclude patterns,
+  # it can be disabled by `exclude-use-default: false`. To list all
+  # excluded by default patterns execute `golangci-lint run --help`
+  exclude:
+    - 'shadow: declaration of "(err|ctx)" shadows declaration at'
+
+run:
+  skip-dirs:
+    - logs
+    - dags
+    - plugins
+  go: "1.20"

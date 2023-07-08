@@ -1,0 +1,128 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json?ID=101db96934fcecea",
+      "group": "commit",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "mime-type": "application/json",
+      "name": "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json",
+      "properties": [
+        {
+          "name": "mode",
+          "value": "644"
+        }
+      ],
+      "purl": "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json",
+      "type": "file"
+    },
+    {
+      "bom-ref": "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json?ID=101db96934fcecea",
+      "group": "file",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "mime-type": "application/json",
+      "name": "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json",
+      "properties": [
+        {
+          "name": "mode",
+          "value": "644"
+        }
+      ],
+      "purl": "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json",
+      "type": "file"
+    },
+    {
+      "bom-ref": "pkg:file/./syft?ID=df909f830087cc58",
+      "group": "syft",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6bf6dcaf69ec8c4dc0e619a47c75350b83aa3650f5decc13bc2747fe543eb4b1"
+        }
+      ],
+      "mime-type": "application/json",
+      "name": "syft",
+      "properties": [
+        {
+          "name": "content",
+          "value": "ewogICJhcnRpZmFjdHMiOiBbXSwKICAiYXJ0aWZhY3RSZWxhdGlvbnNoaXBzIjogW10sCiAgInNvdXJjZSI6IHsKICAgICJpZCI6ICIwZGNmNGYxODg2ZDZmZTEwYjVhNGRjZmNlOWQxMDBiZjY4MDcxZThmZGZhYzFkODk3ZGRhNzUxOTIzMDAwNGJiIiwKICAgICJ0eXBlIjogImZpbGUiLAogICAgInRhcmdldCI6ICIvaG9tZS9qb2huL1Byb2plY3RzL3NjcmliZS9ldGwtZmxvd3MvZXRsL3Rlc3RzL2ludGVncmF0aW9ucy90ZXN0X2RhdGEvc2JvbS5qc29uIgogIH0sCiAgImRpc3RybyI6IHt9LAogICJkZXNjcmlwdG9yIjogewogICAgIm5hbWUiOiAic3lmdCIsCiAgICAidmVyc2lvbiI6ICJbbm90IHByb3ZpZGVkXSIsCiAgICAiY29uZmlndXJhdGlvbiI6IHsKICAgICAgImF0dGVzdCI6IHt9LAogICAgICAiY2F0YWxvZ2VycyI6IFsKICAgICAgICAiYXBrZGIiLAogICAgICAgICJiaW5hcnkiLAogICAgICAgICJkcGtnIiwKICAgICAgICAiZ28tbW9kIiwKICAgICAgICAiamF2YSIsCiAgICAgICAgImphdmFzY3JpcHQiLAogICAgICAgICJweXRob24iLAogICAgICAgICJycG0iLAogICAgICAgICJydWJ5IiwKICAgICAgICAicnVzdCIsCiAgICAgICAgInNib20iCiAgICAgIF0sCiAgICAgICJjaGVjay1mb3ItYXBwLXVwZGF0ZSI6IHRydWUsCiAgICAgICJjb25maWdQYXRoIjogIiIsCiAgICAgICJkZWZhdWx0LWltYWdlLXB1bGwtc291cmNlIjogIiIsCiAgICAgICJkZXYiOiB7CiAgICAgICAgInByb2ZpbGUtY3B1IjogZmFsc2UsCiAgICAgICAgInByb2ZpbGUtbWVtIjogZmFsc2UKICAgICAgfSwKICAgICAgImV4Y2x1ZGUiOiBbCiAgICAgICAgIi9ob21lL2pvaG4vUHJvamVjdHMvc2NyaWJlL2V0bC1mbG93cy9ldGwvdGVzdHMvaW50ZWdyYXRpb25zL3Rlc3RfZGF0YS9zYm9tLmpzb24vKiovKi5weWMiLAogICAgICAgICIvaG9tZS9qb2huL1Byb2plY3RzL3NjcmliZS9ldGwtZmxvd3MvZXRsL3Rlc3RzL2ludGVncmF0aW9ucy90ZXN0X2RhdGEvc2JvbS5qc29uLyoqLy5naXQvKioiCiAgICAgIF0sCiAgICAgICJmaWxlIjogIiIsCiAgICAgICJmaWxlLWNsYXNzaWZpY2F0aW9uIjogewogICAgICAgICJjYXRhbG9nZXIiOiB7CiAgICAgICAgICAiZW5hYmxlZCI6IGZhbHNlLAogICAgICAgICAgInNjb3BlIjogInNxdWFzaGVkIgogICAgICAgIH0KICAgICAgfSwKICAgICAgImZpbGUtY29udGVudHMiOiB7CiAgICAgICAgImNhdGFsb2dlciI6IHsKICAgICAgICAgICJlbmFibGVkIjogZmFsc2UsCiAgICAgICAgICAic2NvcGUiOiAic3F1YXNoZWQiCiAgICAgICAgfSwKICAgICAgICAiZ2xvYnMiOiBbXSwKICAgICAgICAic2tpcC1maWxlcy1hYm92ZS1zaXplIjogMTA0ODU3NgogICAgICB9LAogICAgICAiZmlsZS1tZXRhZGF0YSI6IHsKICAgICAgICAiY2F0YWxvZ2VyIjogewogICAgICAgICAgImVuYWJsZWQiOiB0cnVlLAogICAgICAgICAgInNjb3BlIjogInNxdWFzaGVkIgogICAgICAgIH0sCiAgICAgICAgImRpZ2VzdHMiOiBbCiAgICAgICAgICAic2hhMjU2IgogICAgICAgIF0KICAgICAgfSwKICAgICAgImdvbGFuZyI6IHsKICAgICAgICAibG9jYWwtbW9kLWNhY2hlLWRpciI6ICIiLAogICAgICAgICJuby1wcm94eSI6ICIiLAogICAgICAgICJwcm94eSI6ICIiLAogICAgICAgICJzZWFyY2gtbG9jYWwtbW9kLWNhY2hlLWxpY2Vuc2VzIjogZmFsc2UsCiAgICAgICAgInNlYXJjaC1yZW1vdGUtbGljZW5zZXMiOiBmYWxzZQogICAgICB9LAogICAgICAibGludXgta2VybmVsIjogewogICAgICAgICJjYXRhbG9nLW1vZHVsZXMiOiBmYWxzZQogICAgICB9LAogICAgICAibG9nIjogewogICAgICAgICJmaWxlLWxvY2F0aW9uIjogIiIsCiAgICAgICAgImxldmVsIjogIndhcm4iLAogICAgICAgICJzdHJ1Y3R1cmVkIjogZmFsc2UKICAgICAgfSwKICAgICAgIm5hbWUiOiAiIiwKICAgICAgIm91dHB1dCI6IFsKICAgICAgICAianNvbiIKICAgICAgXSwKICAgICAgIm91dHB1dC10ZW1wbGF0ZS1wYXRoIjogIiIsCiAgICAgICJwYWNrYWdlIjogewogICAgICAgICJjYXRhbG9nZXIiOiB7CiAgICAgICAgICAiZW5hYmxlZCI6IHRydWUsCiAgICAgICAgICAic2NvcGUiOiAic3F1YXNoZWQiCiAgICAgICAgfSwKICAgICAgICAiY2F0YWxvZ2VyLWdyb3VwIjogImluc3RhbGwiLAogICAgICAgICJjYXRhbG9nZXJzIjogW10sCiAgICAgICAgInNlYXJjaC1pbmRleGVkLWFyY2hpdmVzIjogdHJ1ZSwKICAgICAgICAic2VhcmNoLXVuaW5kZXhlZC1hcmNoaXZlcyI6IGZhbHNlCiAgICAgIH0sCiAgICAgICJwYXJhbGxlbGlzbSI6IDAsCiAgICAgICJwbGF0Zm9ybSI6ICIiLAogICAgICAicXVpZXQiOiBmYWxzZSwKICAgICAgInJlZ2lzdHJ5IjogewogICAgICAgICJhdXRoIjogWwogICAgICAgICAgewogICAgICAgICAgICAiYXV0aG9yaXR5IjogIiIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJpbnNlY3VyZS1za2lwLXRscy12ZXJpZnkiOiBmYWxzZSwKICAgICAgICAiaW5zZWN1cmUtdXNlLWh0dHAiOiBmYWxzZQogICAgICB9LAogICAgICAic2VjcmV0cyI6IHsKICAgICAgICAiYWRkaXRpb25hbC1wYXR0ZXJucyI6IHt9LAogICAgICAgICJjYXRhbG9nZXIiOiB7CiAgICAgICAgICAiZW5hYmxlZCI6IGZhbHNlLAogICAgICAgICAgInNjb3BlIjogImFsbC1sYXllcnMiCiAgICAgICAgfSwKICAgICAgICAiZXhjbHVkZS1wYXR0ZXJuLW5hbWVzIjogW10sCiAgICAgICAgInJldmVhbC12YWx1ZXMiOiBmYWxzZSwKICAgICAgICAic2tpcC1maWxlcy1hYm92ZS1zaXplIjogMTA0ODU3NgogICAgICB9LAogICAgICAidmVyYm9zaXR5IjogMAogICAgfQogIH0sCiAgInNjaGVtYSI6IHsKICAgICJ2ZXJzaW9uIjogIjcuMS41IiwKICAgICJ1cmwiOiAiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2FuY2hvcmUvc3lmdC9tYWluL3NjaGVtYS9qc29uL3NjaGVtYS03LjEuNS5qc29uIgogIH0KfQ=="
+        }
+      ],
+      "purl": "pkg:file/./syft",
+      "type": "file"
+    }
+  ],
+  "dependencies": [
+    {
+      "dependsOn": [
+        "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json?ID=101db96934fcecea"
+      ],
+      "ref": "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json@SHA-256:0dcf4f1886d6fe10b5a4dcfce9d100bf68071e8fdfac1d897dda7519230004bb?ID=e8019a1febb79f64"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json@SHA-256:0dcf4f1886d6fe10b5a4dcfce9d100bf68071e8fdfac1d897dda7519230004bb?ID=e8019a1febb79f64",
+      "group": "file",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0dcf4f1886d6fe10b5a4dcfce9d100bf68071e8fdfac1d897dda7519230004bb"
+        }
+      ],
+      "name": "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json",
+      "properties": [
+        {
+          "name": "hostname",
+          "value": "john"
+        },
+        {
+          "name": "user",
+          "value": "john"
+        },
+        {
+          "name": "timestamp",
+          "value": "2023-05-31T15:46:15+03:00"
+        },
+        {
+          "name": "input_scheme",
+          "value": "file"
+        },
+        {
+          "name": "input_name",
+          "value": "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json"
+        },
+        {
+          "name": "context_type",
+          "value": "local"
+        },
+        {
+          "name": "abs-path",
+          "value": "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json"
+        }
+      ],
+      "purl": "pkg:file//home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json@SHA-256:0dcf4f1886d6fe10b5a4dcfce9d100bf68071e8fdfac1d897dda7519230004bb",
+      "type": "file",
+      "version": "sha256:0dcf4f1886d6fe10b5a4dcfce9d100bf68071e8fdfac1d897dda7519230004bb"
+    },
+    "timestamp": "2023-05-31T15:46:15+03:00",
+    "tools": [
+      {
+        "name": "gensbom",
+        "vendor": "Scribe security, Inc"
+      }
+    ]
+  },
+  "specVersion": "1.4",
+  "version": 1
+}

@@ -1,0 +1,72 @@
+{
+  "postgres_default": {
+    "conn_type": "postgres",
+    "description": "",
+    "login": "airflow",
+    "password": "airflow",
+    "host": "postgres",
+    "port": 5432,
+    "schema": "airflow",
+    "extra": ""
+  },
+  "postgres_local": {
+    "conn_type": "postgres",
+    "description": "",
+    "login": "airflow",
+    "password": "airflow",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "schema": "airflow",
+    "extra": ""
+  },
+  "aws_default": {
+    "conn_type": "aws",
+    "description": "",
+    "login": "AWS_ACCESS_KEY_ID",
+    "password": "AWS_ACCESS_SECRET_KEY",
+    "host": "",
+    "port": null,
+    "schema": "",
+    "extra": ""
+  },
+  "minio_default": {
+    "conn_type": "aws",
+    "description": "",
+    "login": "minioadmin",
+    "password": "minioadmin",
+    "host": "",
+    "port": null,
+    "schema": "",
+    "extra": "{\"endpoint_url\": \"http://minio:9000\"}"
+  },
+  "minio_local": {
+    "conn_type": "aws",
+    "description": "",
+    "login": "minioadmin",
+    "password": "minioadmin",
+    "host": "",
+    "port": null,
+    "schema": "",
+    "extra": "{\"endpoint_url\": \"http://localhost:9000\"}"
+  },
+  "gcs_default": {
+    "conn_type": "google_cloud_platform",
+    "description": "",
+    "login": "",
+    "password": null,
+    "host": "",
+    "port": null,
+    "schema": "",
+    "extra": "{\"keyfile_dict\": {\"type\": \"service_account\", \"project_id\": \"\", \"private_key_id\": \"\", \"private_key\": \"\", \"client_email\": \"\", \"client_id\": \"\", \"auth_uri\": \"\", \"token_uri\": \"\", \"auth_provider_x509_cert_url\": \"\", \"client_x509_cert_url\": \"\"}}"
+  },
+  "github_default": {
+    "conn_type": "generic",
+    "description": "",
+    "login": "271287",
+    "password": "-----BEGIN RSA PRIVATE KEY-----\nEXAMPLE_KEY==\n-----END RSA PRIVATE KEY-----",
+    "host": "",
+    "port": null,
+    "schema": "",
+    "extra": ""
+  }
+}

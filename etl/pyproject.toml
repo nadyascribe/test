@@ -1,0 +1,34 @@
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.pylama]
+format = "pylint"
+linters = "mccabe,pyflakes,pylint,vulture"
+skip = "venv/*,logs/*,tests/*,migrations/*, scripts/*"
+
+[tool.autoflake]
+recursive = true
+in-place = true
+ignore-pass-after-docstring = true
+remove-all-unused-imports = true
+
+[tool.pylama.linter.pylint]
+max-line-length = 120
+disable = "C,R0903"
+init-hook = 'import sys; sys.path.extend(["dags", "."])'
+
+[tool.mypy]
+follow_imports = "silent"
+plugins = "sqlalchemy.ext.mypy.plugin"
+
+[tool.pylama.linter.vulture]
+exclude = ["cmd/", "logs/"]
+min-confidence = 80
+
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]

@@ -1,0 +1,7 @@
+venv
+.git
+build
+etl/local_attestations
+etl/shared
+etl/logs
+scribe-service/build

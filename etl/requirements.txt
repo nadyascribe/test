@@ -1,0 +1,37 @@
+-c https://raw.githubusercontent.com/apache/airflow/constraints-2.6.1/constraints-3.10.txt
+apache-airflow==2.6.1
+apache-airflow-providers-amazon==8.0.0
+apache-airflow-providers-common-sql==1.4.0
+apache-airflow-providers-google==10.0.0
+apache-airflow-providers-http==4.3.0
+apache-airflow-providers-postgres==5.4.0
+typing_extensions==4.5.0
+pyrate-limiter==2.10.0
+pydantic==1.10.7
+PyGithub==1.58.2
+filelock==3.12.0
+pandas==1.5.3
+pendulum==2.1.2
+SQLAlchemy==1.4.48
+SQLAlchemy-JSONField==1.0.1.post0
+SQLAlchemy-Utils==0.41.1
+requests==2.30.0
+psycopg2-binary==2.9.6
+fastapi==0.95.1
+uvicorn==0.22.0
+httpx==0.23.3
+cryptography==40.0.2
+aiometer==0.4.0
+alembic==1.10.4
+alembic_utils==0.8.1
+boto3==1.26.76
+botocore==1.29.76
+
+# dev-deps
+pytest==7.3.1
+pytest-mock==3.10.0
+black===23.1a1  # forced by constraints
+coverage==7.2.5  # forced by constraints
+pytest-cov==4.0.0
+isort==5.11.5
+autoflake==2.1.1

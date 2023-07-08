@@ -1,0 +1,478 @@
+{
+  "matches": [
+    {
+      "vulnerability": {
+        "id": "CVE-2022-28391",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-28391",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": [
+          "https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch",
+          "https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661",
+          "https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch"
+        ],
+        "description": "BusyBox through 1.35.0 allows remote attackers to execute arbitrary code if netstat is used to print a DNS PTR record's value to a VT compatible terminal. Alternatively, the attacker could choose to change the terminal's colors.",
+        "cvss": [
+          {
+            "version": "2.0",
+            "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+            "metrics": {
+              "baseScore": 6.8,
+              "exploitabilityScore": 8.6,
+              "impactScore": 6.4
+            },
+            "vendorMetadata": {}
+          },
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 8.8,
+              "exploitabilityScore": 2.8,
+              "impactScore": 5.9
+            },
+            "vendorMetadata": {}
+          }
+        ],
+        "fix": {
+          "versions": [],
+          "state": "unknown"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [
+        {
+          "type": "cpe-match",
+          "matcher": "stock-matcher",
+          "searchedBy": {
+            "namespace": "nvd:cpe",
+            "cpes": [
+              "cpe:2.3:a:busybox:busybox:1.35.0:*:*:*:*:*:*:*"
+            ]
+          },
+          "found": {
+            "vulnerabilityID": "CVE-2022-28391",
+            "versionConstraint": "<= 1.35.0 (unknown)",
+            "cpes": [
+              "cpe:2.3:a:busybox:busybox:*:*:*:*:*:*:*:*"
+            ]
+          }
+        }
+      ],
+      "artifact": {
+        "name": "busybox",
+        "version": "1.35.0",
+        "type": "UnknownPackage",
+        "locations": [],
+        "language": "",
+        "licenses": [],
+        "cpes": [
+          "cpe:2.3:a:busybox:busybox:1.35.0:*:*:*:*:*:*:*"
+        ],
+        "purl": "",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2022-28391",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-28391",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": [
+          "https://git.alpinelinux.org/aports/plain/main/busybox/0002-nslookup-sanitize-all-printed-strings-with-printable.patch",
+          "https://gitlab.alpinelinux.org/alpine/aports/-/issues/13661",
+          "https://git.alpinelinux.org/aports/plain/main/busybox/0001-libbb-sockaddr2str-ensure-only-printable-characters-.patch"
+        ],
+        "description": "BusyBox through 1.35.0 allows remote attackers to execute arbitrary code if netstat is used to print a DNS PTR record's value to a VT compatible terminal. Alternatively, the attacker could choose to change the terminal's colors.",
+        "cvss": [
+          {
+            "version": "2.0",
+            "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+            "metrics": {
+              "baseScore": 6.8,
+              "exploitabilityScore": 8.6,
+              "impactScore": 6.4
+            },
+            "vendorMetadata": {}
+          },
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 8.8,
+              "exploitabilityScore": 2.8,
+              "impactScore": 5.9
+            },
+            "vendorMetadata": {}
+          }
+        ],
+        "fix": {
+          "versions": [],
+          "state": "unknown"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [
+        {
+          "type": "cpe-match",
+          "matcher": "apk-matcher",
+          "searchedBy": {
+            "namespace": "nvd:cpe",
+            "cpes": [
+              "cpe:2.3:a:busybox:busybox:1.35.0-r29:*:*:*:*:*:*:*"
+            ]
+          },
+          "found": {
+            "vulnerabilityID": "CVE-2022-28391",
+            "versionConstraint": "<= 1.35.0 (unknown)",
+            "cpes": [
+              "cpe:2.3:a:busybox:busybox:*:*:*:*:*:*:*:*"
+            ]
+          }
+        }
+      ],
+      "artifact": {
+        "name": "busybox",
+        "version": "1.35.0-r29",
+        "type": "apk",
+        "locations": [],
+        "language": "",
+        "licenses": [
+          ""
+        ],
+        "cpes": [
+          "cpe:2.3:a:busybox:busybox:1.35.0-r29:*:*:*:*:*:*:*"
+        ],
+        "purl": "pkg:alpine/busybox@1.35.0-r29?arch=x86_64&upstream=busybox&distro=alpine-3.17.1",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2022-30065",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-30065",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": [
+          "https://bugs.busybox.net/show_bug.cgi?id=14781",
+          "https://cert-portal.siemens.com/productcert/pdf/ssa-333517.pdf"
+        ],
+        "description": "A use-after-free in Busybox 1.35-x's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the copyvar function.",
+        "cvss": [
+          {
+            "version": "2.0",
+            "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+            "metrics": {
+              "baseScore": 6.8,
+              "exploitabilityScore": 8.6,
+              "impactScore": 6.4
+            },
+            "vendorMetadata": {}
+          },
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 7.8,
+              "exploitabilityScore": 1.8,
+              "impactScore": 5.9
+            },
+            "vendorMetadata": {}
+          }
+        ],
+        "fix": {
+          "versions": [],
+          "state": "unknown"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [
+        {
+          "type": "cpe-match",
+          "matcher": "stock-matcher",
+          "searchedBy": {
+            "namespace": "nvd:cpe",
+            "cpes": [
+              "cpe:2.3:a:busybox:busybox:1.35.0:*:*:*:*:*:*:*"
+            ]
+          },
+          "found": {
+            "vulnerabilityID": "CVE-2022-30065",
+            "versionConstraint": "= 1.35.0 (unknown)",
+            "cpes": [
+              "cpe:2.3:a:busybox:busybox:1.35.0:*:*:*:*:*:*:*"
+            ]
+          }
+        }
+      ],
+      "artifact": {
+        "name": "busybox",
+        "version": "1.35.0",
+        "type": "UnknownPackage",
+        "locations": [],
+        "language": "",
+        "licenses": [],
+        "cpes": [
+          "cpe:2.3:a:busybox:busybox:1.35.0:*:*:*:*:*:*:*"
+        ],
+        "purl": "",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2023-24329",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2023-24329",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": [
+          "https://pointernull.com/security/python-url-parse-problem.html",
+          "https://github.com/python/cpython/pull/99421"
+        ],
+        "description": "An issue in the urllib.parse component of Python before v3.11 allows attackers to bypass blocklisting methods by supplying a URL that starts with blank characters.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "metrics": {
+              "baseScore": 7.5,
+              "exploitabilityScore": 3.9,
+              "impactScore": 3.6
+            },
+            "vendorMetadata": {}
+          }
+        ],
+        "fix": {
+          "versions": [],
+          "state": "unknown"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [
+        {
+          "type": "cpe-match",
+          "matcher": "stock-matcher",
+          "searchedBy": {
+            "namespace": "nvd:cpe",
+            "cpes": [
+              "cpe:2.3:a:python:python:3.10.9:*:*:*:*:*:*:*"
+            ]
+          },
+          "found": {
+            "vulnerabilityID": "CVE-2023-24329",
+            "versionConstraint": "< 3.11 (unknown)",
+            "cpes": [
+              "cpe:2.3:a:python:python:*:*:*:*:*:*:*:*"
+            ]
+          }
+        }
+      ],
+      "artifact": {
+        "name": "python",
+        "version": "3.10.9",
+        "type": "UnknownPackage",
+        "locations": [],
+        "language": "",
+        "licenses": [],
+        "cpes": [
+          "cpe:2.3:a:python:python:3.10.9:*:*:*:*:*:*:*"
+        ],
+        "purl": "",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "GHSA-43fp-rhv2-5gv8",
+        "dataSource": "https://github.com/advisories/GHSA-43fp-rhv2-5gv8",
+        "namespace": "github:language:python",
+        "severity": "Medium",
+        "urls": [
+          "https://github.com/advisories/GHSA-43fp-rhv2-5gv8"
+        ],
+        "description": "Certifi removing TrustCor root certificate",
+        "cvss": [],
+        "fix": {
+          "versions": [
+            "2022.12.07"
+          ],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [
+        {
+          "id": "CVE-2022-23491",
+          "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-23491",
+          "namespace": "nvd:cpe",
+          "severity": "High",
+          "urls": [
+            "https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/oxX69KFvsm4/m/yLohoVqtCgAJ",
+            "https://github.com/certifi/python-certifi/security/advisories/GHSA-43fp-rhv2-5gv8"
+          ],
+          "description": "Certifi is a curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Certifi 2022.12.07 removes root certificates from \"TrustCor\" from the root store. These are in the process of being removed from Mozilla's trust store. TrustCor's root certificates are being removed pursuant to an investigation prompted by media reporting that TrustCor's ownership also operated a business that produced spyware. Conclusions of Mozilla's investigation can be found in the linked google group discussion.",
+          "cvss": [
+            {
+              "version": "3.1",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "metrics": {
+                "baseScore": 7.5,
+                "exploitabilityScore": 3.9,
+                "impactScore": 3.6
+              },
+              "vendorMetadata": {}
+            }
+          ]
+        }
+      ],
+      "matchDetails": [
+        {
+          "type": "exact-direct-match",
+          "matcher": "python-matcher",
+          "searchedBy": {
+            "language": "python",
+            "namespace": "github:language:python"
+          },
+          "found": {
+            "versionConstraint": ">=2017.11.05,<2022.12.07 (python)",
+            "vulnerabilityID": "GHSA-43fp-rhv2-5gv8"
+          }
+        }
+      ],
+      "artifact": {
+        "name": "certifi",
+        "version": "2022.12.7",
+        "type": "python",
+        "locations": [],
+        "language": "python",
+        "licenses": [
+          ""
+        ],
+        "cpes": [
+          "cpe:2.3:a:python-certifi:python-certifi:2022.12.7:*:*:*:*:*:*:*"
+        ],
+        "purl": "pkg:pypi/certifi@2022.12.7",
+        "upstreams": []
+      }
+    }
+  ],
+  "source": {
+    "type": "image",
+    "target": {
+      "userInput": "index.docker.io/library/cve_data:latest",
+      "imageID": "pkg:docker/index.docker.io/library/cve_data:latest@sha256:30e1ff5305361d422be92a5a300393b61ebfcd00153013e74a1a6209dee2800d?ID=932a7213470e0246",
+      "manifestDigest": "sha256:30e1ff5305361d422be92a5a300393b61ebfcd00153013e74a1a6209dee2800d",
+      "mediaType": "",
+      "tags": [],
+      "imageSize": 0,
+      "layers": null,
+      "manifest": null,
+      "config": null,
+      "repoDigests": [],
+      "architecture": "",
+      "os": ""
+    }
+  },
+  "distro": {
+    "name": "",
+    "version": "",
+    "idLike": null
+  },
+  "descriptor": {
+    "name": "grype",
+    "version": "0.56.0",
+    "configuration": {
+      "configPath": "",
+      "verbosity": 0,
+      "output": "json",
+      "file": "grype.json",
+      "distro": "",
+      "add-cpes-if-none": false,
+      "output-template-file": "",
+      "quiet": false,
+      "check-for-app-update": true,
+      "only-fixed": false,
+      "only-notfixed": false,
+      "platform": "",
+      "search": {
+        "scope": "Squashed",
+        "unindexed-archives": false,
+        "indexed-archives": true
+      },
+      "ignore": null,
+      "exclude": [],
+      "db": {
+        "cache-dir": "/home/john/.cache/grype/db",
+        "update-url": "https://toolbox-data.anchore.io/grype/databases/listing.json",
+        "ca-cert": "",
+        "auto-update": true,
+        "validate-by-hash-on-start": false,
+        "validate-age": true,
+        "max-allowed-built-age": 432000000000000
+      },
+      "externalSources": {
+        "enable": false,
+        "maven": {
+          "searchUpstreamBySha1": true,
+          "baseUrl": "https://search.maven.org/solrsearch/select"
+        }
+      },
+      "match": {
+        "java": {
+          "using-cpes": true
+        },
+        "dotnet": {
+          "using-cpes": true
+        },
+        "golang": {
+          "using-cpes": true
+        },
+        "javascript": {
+          "using-cpes": true
+        },
+        "python": {
+          "using-cpes": true
+        },
+        "ruby": {
+          "using-cpes": true
+        },
+        "stock": {
+          "using-cpes": true
+        }
+      },
+      "dev": {
+        "profile-cpu": false,
+        "profile-mem": false
+      },
+      "fail-on-severity": "",
+      "registry": {
+        "insecure-skip-tls-verify": false,
+        "insecure-use-http": false,
+        "auth": []
+      },
+      "log": {
+        "structured": false,
+        "level": "warn",
+        "file": ""
+      },
+      "attestation": {
+        "public-key": "",
+        "skip-verification": false
+      },
+      "show-suppressed": false,
+      "by-cve": false
+    },
+    "db": {
+      "built": "2023-03-06T08:14:33Z",
+      "schemaVersion": 5,
+      "location": "/home/john/.cache/grype/db/5",
+      "checksum": "sha256:6b3cdaff85fc4a4d5108959dedffb22269617472b9c8aef9a9976ef93fdf3c39",
+      "error": null
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "artifacts": [],
+  "artifactRelationships": [],
+  "source": {
+    "id": "0dcf4f1886d6fe10b5a4dcfce9d100bf68071e8fdfac1d897dda7519230004bb",
+    "type": "file",
+    "target": "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json"
+  },
+  "distro": {},
+  "descriptor": {
+    "name": "syft",
+    "version": "[not provided]",
+    "configuration": {
+      "attest": {},
+      "catalogers": [
+        "apkdb",
+        "binary",
+        "dpkg",
+        "go-mod",
+        "java",
+        "javascript",
+        "python",
+        "rpm",
+        "ruby",
+        "rust",
+        "sbom"
+      ],
+      "check-for-app-update": true,
+      "configPath": "",
+      "default-image-pull-source": "",
+      "dev": {
+        "profile-cpu": false,
+        "profile-mem": false
+      },
+      "exclude": [
+        "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json/**/*.pyc",
+        "/home/john/Projects/scribe/etl-flows/etl/tests/integrations/test_data/sbom.json/**/.git/**"
+      ],
+      "file": "",
+      "file-classification": {
+        "cataloger": {
+          "enabled": false,
+          "scope": "squashed"
+        }
+      },
+      "file-contents": {
+        "cataloger": {
+          "enabled": false,
+          "scope": "squashed"
+        },
+        "globs": [],
+        "skip-files-above-size": 1048576
+      },
+      "file-metadata": {
+        "cataloger": {
+          "enabled": true,
+          "scope": "squashed"
+        },
+        "digests": [
+          "sha256"
+        ]
+      },
+      "golang": {
+        "local-mod-cache-dir": "",
+        "no-proxy": "",
+        "proxy": "",
+        "search-local-mod-cache-licenses": false,
+        "search-remote-licenses": false
+      },
+      "linux-kernel": {
+        "catalog-modules": false
+      },
+      "log": {
+        "file-location": "",
+        "level": "warn",
+        "structured": false
+      },
+      "name": "",
+      "output": [
+        "json"
+      ],
+      "output-template-path": "",
+      "package": {
+        "cataloger": {
+          "enabled": true,
+          "scope": "squashed"
+        },
+        "cataloger-group": "install",
+        "catalogers": [],
+        "search-indexed-archives": true,
+        "search-unindexed-archives": false
+      },
+      "parallelism": 0,
+      "platform": "",
+      "quiet": false,
+      "registry": {
+        "auth": [
+          {
+            "authority": ""
+          }
+        ],
+        "insecure-skip-tls-verify": false,
+        "insecure-use-http": false
+      },
+      "secrets": {
+        "additional-patterns": {},
+        "cataloger": {
+          "enabled": false,
+          "scope": "all-layers"
+        },
+        "exclude-pattern-names": [],
+        "reveal-values": false,
+        "skip-files-above-size": 1048576
+      },
+      "verbosity": 0
+    }
+  },
+  "schema": {
+    "version": "7.1.5",
+    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-7.1.5.json"
+  }
+}

@@ -1,0 +1,296 @@
+[
+  {
+    "fullDescription": {
+      "text": "Every change to the source is tracked in a version control system that meets the following requirements:\n\n[Change history] There exists a record of the history of changes that went into the revision. Each change must contain: the identities of the uploader and reviewers (if any), timestamps of the reviews (if any) and submission, the change description/justification, the content of the change, and the parent revisions.\n\n[Immutable reference] There exists a way to indefinitely reference this particular, immutable revision. In git, this is the {repo URL + branch/tag/ref + commit ID}.\n\nMost popular version control system meet this requirement, such as git, Mercurial, Subversion, or Perforce.\n\nNOTE: This does NOT require that the code, uploader/reviewer identities, or change history be made public. Rather, some organization must attest to the fact that these requirements are met, and it is up to the consumer whether this attestation is sufficient."
+    },
+    "id": "GGS001",
+    "messageStrings": {
+      "fail": {
+        "text": "The code should be managed in a source code management system."
+      },
+      "pass": {
+        "text": "The code is managed in this {0}."
+      }
+    },
+    "name": "SourceVersionControlled",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": true,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "The code must be version-controlled."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "Every change in the revision’s history has at least one strongly authenticated actor identity (author, uploader, reviewer, etc.) and timestamp. It must be clear which identities were verified, and those identities must use two-step verification or similar. (Exceptions noted below.)\n\n[First-parent history] In the case of a non-linear version control system, where a revision can have more than one parent, only the “first parent history” is in scope. In other words, when a feature branch is merged back into the main branch, only the merge itself is in scope.\n\n[Historical cutoff] There is some TBD exception to allow existing projects to meet SLSA 3/4 even if historical revisions were present in the history. Current thinking is that this could be either last N months or a platform attestation guaranteeing that future changes in the next N months will meet the requirements."
+    },
+    "id": "GGS002",
+    "messageStrings": {
+      "fail": {
+        "text": "Branch {0} protections rules should require signed commits."
+      },
+      "pass": {
+        "text": "Branch {0} protections rules require signed commits."
+      }
+    },
+    "name": "SourceHistoryVerified",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": false,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "All commits are signed."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "The revision and its change history are preserved indefinitely and cannot be deleted, except when subject to an established and transparent policy for obliteration, such as a legal or policy requirement.\n\n[Immutable history] It must not be possible for persons to delete or modify the history, even with multi-party approval, except by trusted platform admins with two-party approval following the obliterate policy.\n[Limited retention for SLSA 3] At SLSA 3 (but not 4), it is acceptable for the retention to be limited to 18 months, as attested by the source control platform.\nExample: If a commit is made on 2020-04-05 and then a retention attestation is generated on 2021-01-01, the commit must be retained until at least 2022-07-01."
+    },
+    "id": "GGS003",
+    "messageStrings": {
+      "fail": {
+        "text": "Branch {0} protections rules should disallow deletions."
+      },
+      "pass": {
+        "text": "Branch {0} protections rules disallow deletions."
+      },
+      "review": {
+        "text": "Branch {0} protections rules disallow deletions. The history could not be verified against the given input."
+      }
+    },
+    "name": "SourceRetainedIndefinitely",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": false,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "The source revision history is preserved indefinitely."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "All build steps were fully defined in some sort of “build script”. The only manual command, if any, was to invoke the build script.\n\n\nExamples:\n\nBuild script is Makefile, invoked via make all.\nBuild script is .github/workflows/build.yaml, invoked by GitHub Actions."
+    },
+    "id": "GGS005",
+    "messageStrings": {
+      "fail": {
+        "text": "The build should be scripted."
+      },
+      "pass": {
+        "text": "The build is scripted {0}."
+      }
+    },
+    "name": "BuildScripted",
+    "properties": {
+      "SLSALevel1": true,
+      "SLSALevel2": true,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "All build steps are defined as code."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "All build steps ran using some build service, not on a developer’s workstation.\n\nExamples: GitHub Actions, Google Cloud Build, Travis CI."
+    },
+    "id": "GGS006",
+    "messageStrings": {
+      "fail": {
+        "text": "The build should be executed by a service."
+      },
+      "pass": {
+        "text": "The build is executed by a service 'GitHub Actions'."
+      }
+    },
+    "name": "BuildService",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": true,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "The build is performed by a build service."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "The build definition and configuration executed by the build service is verifiably derived from text file definitions stored in a version control system.\n\nVerifiably derived can mean either fetched directly through a trusted channel, or that the derived definition has some trustworthy provenance chain linking back to version control.\n\nExamples:\n\n.github/workflows/build.yaml stored in git\nTekton bundles generated from text files by a SLSA compliant build process and stored in an OCI registry with SLSA provenance metadata available."
+    },
+    "id": "GGS007",
+    "messageStrings": {
+      "fail": {
+        "text": "The build should be defined and configured as code."
+      },
+      "pass": {
+        "text": "The build is defined and configured as code {0}."
+      }
+    },
+    "name": "BuildAsCode",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": false,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "Both build definition and configuration is managed as code."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "The build service ensured that the build steps ran in an ephemeral environment, such as a container or VM, provisioned solely for this build, and not reused from a prior build."
+    },
+    "id": "GGS008",
+    "messageStrings": {
+      "fail": {
+        "text": "The build should run in an ephemeral environment."
+      },
+      "pass": {
+        "text": "The build is run in an ephemeral environment on GitHub-hosted runners."
+      }
+    },
+    "name": "BuildEphemeralEnvironment",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": false,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "Build environment is ephemeral."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "The build service ensured that the build steps ran in an isolated environment free of influence from other build instances, whether prior or concurrent.\n\nIt MUST NOT be possible for a build to access any secrets of the build service, such as the provenance signing key.\nIt MUST NOT be possible for two builds that overlap in time to influence one another.\nIt MUST NOT be possible for one build to persist or influence the build environment of a subsequent build.\nBuild caches, if used, MUST be purely content-addressable to prevent tampering."
+    },
+    "id": "GGS009",
+    "messageStrings": {
+      "fail": {
+        "text": "Scribe determined that the build environment is not isolated."
+      },
+      "open": {
+        "text": "No information about dependencies was fetched. Could not determine the rule outcome."
+      },
+      "pass": {
+        "text": "Scribe determined that the build environment is isolated."
+      }
+    },
+    "name": "BuildIsolated",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": false,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "Build environment is isolated."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "The provenance is available to the consumer in a format that the consumer accepts. The format SHOULD be in-toto SLSA Provenance, but another format MAY be used if both producer and consumer agree and it meets all the other requirements."
+    },
+    "id": "GGS013",
+    "messageStrings": {
+      "fail": {
+        "text": "No provenance found."
+      },
+      "pass": {
+        "text": "The provenance is available {0}."
+      }
+    },
+    "name": "ProvenanceAvailable",
+    "properties": {
+      "SLSALevel1": true,
+      "SLSALevel2": true,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "The provenance should be available."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "The provenance’s authenticity and integrity can be verified by the consumer. This SHOULD be through a digital signature from a private key accessible only to the service generating the provenance."
+    },
+    "id": "GGS014",
+    "messageStrings": {
+      "fail": {
+        "text": "The provenance should be authenticated. Scribe couldn't authenticate the provenance."
+      },
+      "pass": {
+        "text": "The provenance is authenticated with this {0}."
+      }
+    },
+    "name": "ProvenanceAuthenticated",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": true,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "The provenance authenticity can be verified."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "The data in the provenance MUST be obtained from the build service (either because the generator is the build service or because the provenance generator reads the data directly from the build service).\n\nRegular users of the service MUST NOT be able to inject or alter the contents, except as noted below.\n\nThe following provenance fields MAY be generated by the user-controlled build steps:\n\nThe output artifact hash from Identifies Artifact.\nReasoning: This only allows a “bad” build to falsely claim that it produced a “good” artifact. This is not a security problem because the consumer MUST accept only “good” builds and reject “bad” builds.\nThe “reproducible” boolean and justification from Reproducible."
+    },
+    "id": "GGS015",
+    "messageStrings": {
+      "fail": {
+        "text": "The provenance should be generated by the build system."
+      },
+      "pass": {
+        "text": "The provenance is generated by the build system."
+      }
+    },
+    "name": "ProvenanceServiceGenerated",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": true,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "The provenance is generated by a build service."
+    }
+  },
+  {
+    "fullDescription": {
+      "text": "Provenance cannot be falsified by the build service’s users.\n\nNOTE: This requirement is a stricter version of Service Generated.\n\nAny secret material used to demonstrate the non-falsifiable nature of the provenance, for example the signing key used to generate a digital signature, MUST be stored in a secure management system appropriate for such material and accessible only to the build service account.\nSuch secret material MUST NOT be accessible to the environment running the user-defined build steps.\nEvery field in the provenance MUST be generated or verified by the build service in a trusted control plane. The user-controlled build steps MUST NOT be able to inject or alter the contents, except as noted below.\n\nThe following provenance fields MAY be generated by the user-controlled build steps without the build service verifying their correctness:\n\nThe output artifact hash from Identifies Artifact.\nReasoning: This only allows a “bad” build to falsely claim that it produced a “good” artifact. This is not a security problem because the consumer MUST accept only “good” builds and reject “bad” builds.\nThe “reproducible” boolean and justification from Reproducible."
+    },
+    "id": "GGS016",
+    "messageStrings": {
+      "fail": {
+        "text": "Provenance should be protected against falsifications by build service's users"
+      },
+      "pass": {
+        "text": "Provenance cannot be falsified by the build service’s users. {0}"
+      }
+    },
+    "name": "ProvenanceNonFalsifiable",
+    "properties": {
+      "SLSALevel1": false,
+      "SLSALevel2": false,
+      "SLSALevel3": true,
+      "SLSALevel4": true
+    },
+    "shortDescription": {
+      "text": "The provenance cannot be modified by the users."
+    }
+  }
+]

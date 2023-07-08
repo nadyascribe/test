@@ -1,0 +1,124 @@
+---
+version: '3.4'
+
+x-airflow-common:
+  &airflow-common
+  build:
+    dockerfile: local-etl.dockerfile
+  ulimits:
+    nofile:
+      soft: 65536
+      hard: 65536
+  user: "${AIRFLOW_UID:-0}:0"
+  env_file:
+    - "${ENV_FILE:-.env}"
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ../scribe-service/build:/opt/scribe-service
+    - ./migrations:/opt/airflow/migrations
+    - ./alembic.ini:/opt/airflow/alembic.ini
+    - ./logs:/opt/airflow/logs
+    - ./shared:/mnt/shared
+
+x-depends-on:
+  &depends-on
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  postgres:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    command: ["postgres", "-c", "log_statement=all"]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    restart: unless-stopped
+    volumes:
+      - ./migrations/create_user_and_schema.sql:/docker-entrypoint-initdb.d/create_user_and_schema.sql
+    env_file:
+      - "${ENV_FILE:-.env}"
+    logging:
+      options:
+        # in case of "log_statement=all" logs may have a very large size. so limit it (unlimited by default).
+        max-size: "100mb"
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: airflow@airflow.com
+      PGADMIN_DEFAULT_PASSWORD: airflow
+    volumes:
+      - ./pgadmin-servers.json:/pgadmin4/servers.json
+    ports:
+      - "5050:80"
+
+  scheduler:
+    <<: [*airflow-common, *depends-on]
+    command: ["airflow", "scheduler"]
+    restart: unless-stopped
+    ports:
+      - "8793:8793"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  triggerer:
+    <<: [*airflow-common, *depends-on]
+    command: ["airflow", "triggerer"]
+    restart: unless-stopped
+
+  webserver:
+    <<: [*airflow-common, *depends-on]
+    command: ["airflow", "webserver"]
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 5s
+      timeout: 30s
+      retries: 10
+
+  minio:
+    image: minio/minio:RELEASE.2023-02-09T05-16-53Z
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    restart: unless-stopped
+    environment:
+      - "MINIO_ACCESS_KEY=minioadmin"
+      - "MINIO_SECRET_KEY=minioadmin"
+      - "MINIO_SERVER_URL=http://minio:9000"
+      - "MINIO_BROWSER_REDIRECT_URL=http://localhost:9001"
+    command: server /data --console-address ":9001"
+
+  createbuckets:
+    image: minio/mc
+    depends_on:
+      - minio
+    volumes:
+      - ./local_attestations:/data
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc config host add myminio http://minio:9000 minioadmin minioadmin;
+      /usr/bin/mc rm -r --force myminio/scribe-dev-filetransfers;
+      /usr/bin/mc mb myminio/scribe-dev-filetransfers;
+      /usr/bin/mc policy download myminio/scribe-dev-filetransfers;
+      /usr/bin/mc cp -r data/ myminio;
+      exit 0;
+      "
+  
+  internal-api:
+    <<: *airflow-common
+    ports:
+      - "1111:1111"
+    volumes:
+      - ./internal-api/app:/internal-api/code/app
+    user: airflow
+    working_dir: /internal-api/code
+    entrypoint: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "1111", "--reload"]

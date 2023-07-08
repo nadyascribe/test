@@ -1,0 +1,89 @@
+version: "1"
+packages:
+  - name: "db"
+    path: "./internal/db"
+    queries: "./queries/"
+    schema: "migrations"
+    engine: "postgresql"
+    emit_prepared_queries: true
+    emit_interface: false
+    emit_exact_table_names: false
+    emit_empty_slices: false
+    emit_json_tags: true
+    json_tags_case_style: "snake"
+    # TODO: unable to use -  sql_package: "pgx/v4" since we will loose tracing support for pg
+overrides:
+  - db_type: "pg_catalog.timestamp"
+    go_type:
+      import: "time"
+      type: "Time"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.timestamptz"
+    go_type:
+      import: "time"
+      type: "Time"
+      pointer: true
+    nullable: true
+  - db_type: "text"
+    go_type:
+      type: "string"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.varchar"
+    go_type:
+      type: "string"
+      pointer: true
+    nullable: true
+  - db_type: "ltree"
+    go_type:
+      type: "string"
+      pointer: true
+    nullable: true
+  - db_type: "jsonb"
+    go_type:
+      import: "encoding/json"
+      type: "RawMessage"
+      pointer: true
+    nullable: true
+  - db_type: "json"
+    go_type:
+      import: "encoding/json"
+      type: "RawMessage"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.int2"
+    go_type:
+      type: "int16"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.int4"
+    go_type:
+      type: "int"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.int8"
+    go_type:
+      type: "int64"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.bool"
+    go_type:
+      type: "bool"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.float4"
+    go_type:
+      type: "float32"
+      pointer: true
+    nullable: true
+  - db_type: "pg_catalog.float8"
+    go_type:
+      type: "float64"
+      pointer: true
+    nullable: true
+  - db_type: "bigserial"
+    go_type:
+      type: "int"
+      pointer: true
+    nullable: true
