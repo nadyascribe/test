@@ -1,0 +1,27 @@
+name: example workflow
+
+on: 
+  push:
+    tags:
+      - "*"
+
+jobs:
+  scribe-report-test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Generate SLSA provenance statement
+        id: valint_slsa_statement
+        uses: scribe-security/action-bom@master
+        with:
+          target: mongo-express:1.0.0-alpha.4
+          format: statement-slsa
+
+      -uses: actions/upload-artifact@v2
+      with:
+        name: provenance
+        path: ${{ steps.valint_slsa_statement.outputs.OUTPUT_PATH }}
