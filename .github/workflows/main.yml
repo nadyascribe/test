@@ -9,7 +9,7 @@ jobs:
 
       - uses: scribe-security/action-bom@master
         with:
-          target: file
+          target: nadya.cs
           format: attest
           scribe-enable: true
           scribe-client-id: nadya@scribesecurity.com
@@ -17,7 +17,7 @@ jobs:
 
       - uses: scribe-security/action-verify@master
         with:
-          target: file
+          target: nadya.cs
           format: attest
           scribe-enable: true
           scribe-client-id: nadya@scribesecurity.com
