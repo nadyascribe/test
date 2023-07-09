@@ -9,7 +9,7 @@ jobs:
 
       uses: scribe-security/action-bom@master
       with:
-        target: ./../../nadya.cs
+        target: nadya.cs
         format: attest
         scribe-enable: true
         product-key: "Nadya_Test"
@@ -18,7 +18,7 @@ jobs:
 
       uses: scribe-security/action-verify@master
       with:
-        target: ./../../nadya.cs
+        target: nadya.cs
         format: attest
         scribe-enable: true
         product-key: "Nadya_Test"
