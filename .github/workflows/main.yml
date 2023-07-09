@@ -1,9 +1,6 @@
 name: example workflow
 
-on: 
-  push:
-    tags:
-      - "*"
+on: push
 
 jobs:
   scribe-report-test:
