@@ -9,7 +9,7 @@ jobs:
 
       - uses: scribe-security/action-bom@master
         with:
-          target: [target]
+          target: file
           format: [attest, statement, attest-slsa, statement-slsa]
           scribe-enable: true
           scribe-client-id: nadya@scribesecurity.com
