@@ -1,24 +1,79 @@
-name:  scribe_github_workflow
+name: dev_new_env_demo
 
 on: push
+    
+env:
+     SCRIBE_URL: "https://airflow.dev.scribesecurity.com/"
+     SCRIBE_LOGIN_URL: "https://scribe-hub-dev.us.auth0.com"
+     SCRIBE_AUDIENCE: "api.dev.scribesecurity.com"
 
 jobs:
   scribe-report-test:
     runs-on: ubuntu-latest
+    permissions:
+     id-token: write
+     
     steps:
 
-      - uses: scribe-security/action-bom@master
+      - uses: actions/checkout@v2
         with:
-          target: nadya.cs
-          format: attest
-          scribe-enable: true
-          scribe-client-id: nadya@scribesecurity.com
-          scribe-client-secret: AAAAB3NzaC1yc2EAAAADAQABAAABgQCmIFKt7taAagQgY2ohXkcCNPT6NdNdoHuGKvFJBKERuCWWWom8l0KiT2cJdWzssvGYVG8IHBlf+BJt1VoZCrPAAHQ2vj1DfSb0h0Dd/ReZwWYdp4QOlUGmFDLI2yH3zioiXEDarWuEepLAz3sBL1hCf0/tQ5RN8se4lj3FETt2lnlUXCg8wZP9yj81X0bpbTS2bzHww8Tmlm0Z/xN2ZDIHBweST+6HN40KISlqn88Y3mQNwrn4ZWVH5SsEHU57gYW6vKXvN1kRAIQlQUvAcqDTMaBac5hpx1jm8QcKkgwa0HPkNlSyeJviao+akf+ieMYT/6CRTu8CdbRN5R8PVESxmU/lmORzH+ovrWGifbEnuAdah0rJgrvAjtj033JzUuglg+xcGdzESVvcz+vnm7HKh9C4kwKpKvrsAxMw4R9iIoHPOJz3WYGLs01cM2WiHMHdlD8B1AsZpSSHL2AZxa9I/1edzhYIUEKVQlg/s0NkM6QVEK2yWlWZ+oQ+Ln2yRdkntid=
+          fetch-depth: 0
 
-      - uses: scribe-security/action-verify@master
+      - uses: actions/checkout@v3
         with:
-          target: nadya.cs
-          format: attest
+          repository: mongo-express/mongo-express
+          ref: refs/tags/v1.0.0-alpha.4
+          path: mongo-express-scm
+
+      - name: Scm generate bom, upload to scribe
+        id: valint_bom_scm
+        uses: scribe-security/action-bom@master
+        with:
+           type: dir
+           target: 'mongo-express-scm'
+           scribe-enable: true
+           scribe-client-id: 1FcCB0ywsJ9LCHC3Nt0P4kyRrTvzenZ8
+           scribe-client-secret: TsVsLJXmSAog3eTZvIwEjkk0xoUmp4FhOTfx-elWQ0kiH8CyY5xkP8UqWaPqht-_
+           product-key: "Demo_NADYATest"
+           scribe-url: ${{ env.SCRIBE_URL }}
+           scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
+           scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
+
+
+      # Build and push your image - this example skips this step as we're using the published mongo express.
+
+      - name: Image generate bom, upload to scribe
+        id: valint_bom_image
+        uses: scribe-security/action-bom@master
+        with:
+          type: docker # To be included only if you want to to use docker daemon to access the image (for example, creating your docker image locally)
+          target: mongo-express:0.45
           scribe-enable: true
-          scribe-client-id: nadya@scribesecurity.com
-          scribe-client-secret: AAAAB3NzaC1yc2EAAAADAQABAAABgQCmIFKt7taAagQgY2ohXkcCNPT6NdNdoHuGKvFJBKERuCWWWom8l0KiT2cJdWzssvGYVG8IHBlf+BJt1VoZCrPAAHQ2vj1DfSb0h0Dd/ReZwWYdp4QOlUGmFDLI2yH3zioiXEDarWuEepLAz3sBL1hCf0/tQ5RN8se4lj3FETt2lnlUXCg8wZP9yj81X0bpbTS2bzHww8Tmlm0Z/xN2ZDIHBweST+6HN40KISlqn88Y3mQNwrn4ZWVH5SsEHU57gYW6vKXvN1kRAIQlQUvAcqDTMaBac5hpx1jm8QcKkgwa0HPkNlSyeJviao+akf+ieMYT/6CRTu8CdbRN5R8PVESxmU/lmORzH+ovrWGifbEnuAdah0rJgrvAjtj033JzUuglg+xcGdzESVvcz+vnm7HKh9C4kwKpKvrsAxMw4R9iIoHPOJz3WYGLs01cM2WiHMHdlD8B1AsZpSSHL2AZxa9I/1edzhYIUEKVQlg/s0NkM6QVEK2yWlWZ+oQ+Ln2yRdk=
+          format: attest-cyclonedx-json
+          scribe-client-id: 1FcCB0ywsJ9LCHC3Nt0P4kyRrTvzenZ8
+          scribe-client-secret: TsVsLJXmSAog3eTZvIwEjkk0xoUmp4FhOTfx-elWQ0kiH8CyY5xkP8UqWaPqht-_
+          product-key: "Demo_NADYATest"
+          scribe-url: ${{ env.SCRIBE_URL }}
+          scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
+          scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: scribe-reports
+          path: |
+            ${{ steps.valint_bom_scm.outputs.OUTPUT_PATH }}
+            ${{ steps.valint_bom_image.outputs.OUTPUT_PATH }}
+            
+      - name: Generate SLSA provenance statement
+        id: valint_slsa_statement
+        uses: scribe-security/action-bom@master
+        with:
+          target: mongo-express:0.45
+          format: statement-slsa
+          force: true
+          product-key: "Demo_NADYATest"
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: provenance
+          path: ${{ steps.valint_slsa_statement.outputs.OUTPUT_PATH }}     
