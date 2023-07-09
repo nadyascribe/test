@@ -1,4 +1,4 @@
-name: example workflow
+name:  scribe_github_workflow
 
 on: push
 
@@ -7,18 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Generate SLSA provenance statement
-        id: valint_slsa_statement
         uses: scribe-security/action-bom@master
         with:
-          target: mongo-express:1.0.0-alpha.4
-          format: statement-slsa
+          target: [target]
+          format: [attest, statement, attest-slsa, statement-slsa]
+          scribe-enable: true
+          scribe-client-id: ${{ secrets.clientid }}
+          scribe-client-secret: ${{ secrets.clientsecret }}
 
-      - uses: actions/upload-artifact@v2
+        uses: scribe-security/action-verify@master
         with:
-          name: provenance
-          path: ${{ steps.valint_slsa_statement.outputs.OUTPUT_PATH }}
+          target: [target]
+          format: [attest, statement, attest-slsa, statement-slsa]
+          scribe-enable: true
+          scribe-client-id: ${{ secrets.clientid }}
+          scribe-client-secret: ${{ secrets.clientsecret }}

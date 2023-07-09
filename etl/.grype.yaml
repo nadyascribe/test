@@ -1,6 +1,0 @@
-db:
-  # auto-update database if it is older than `max-allowed-built-age`
-  auto-update: true
-  max-allowed-built-age: "24h"
-  # allow grype to run on sbom if database is older than `max-allowed-built-age`
-  validate-age: false
