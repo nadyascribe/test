@@ -10,15 +10,15 @@ jobs:
       - uses: scribe-security/action-bom@master
         with:
           target: file
-          format: [attest, statement, attest-slsa, statement-slsa]
+          format: attest
           scribe-enable: true
           scribe-client-id: nadya@scribesecurity.com
           scribe-client-secret: AAAAB3NzaC1yc2EAAAADAQABAAABgQCmIFKt7taAagQgY2ohXkcCNPT6NdNdoHuGKvFJBKERuCWWWom8l0KiT2cJdWzssvGYVG8IHBlf+BJt1VoZCrPAAHQ2vj1DfSb0h0Dd/ReZwWYdp4QOlUGmFDLI2yH3zioiXEDarWuEepLAz3sBL1hCf0/tQ5RN8se4lj3FETt2lnlUXCg8wZP9yj81X0bpbTS2bzHww8Tmlm0Z/xN2ZDIHBweST+6HN40KISlqn88Y3mQNwrn4ZWVH5SsEHU57gYW6vKXvN1kRAIQlQUvAcqDTMaBac5hpx1jm8QcKkgwa0HPkNlSyeJviao+akf+ieMYT/6CRTu8CdbRN5R8PVESxmU/lmORzH+ovrWGifbEnuAdah0rJgrvAjtj033JzUuglg+xcGdzESVvcz+vnm7HKh9C4kwKpKvrsAxMw4R9iIoHPOJz3WYGLs01cM2WiHMHdlD8B1AsZpSSHL2AZxa9I/1edzhYIUEKVQlg/s0NkM6QVEK2yWlWZ+oQ+Ln2yRdkntid=
 
       - uses: scribe-security/action-verify@master
         with:
-          target: [target]
-          format: [attest, statement, attest-slsa, statement-slsa]
+          target: file
+          format: attest
           scribe-enable: true
           scribe-client-id: nadya@scribesecurity.com
           scribe-client-secret: AAAAB3NzaC1yc2EAAAADAQABAAABgQCmIFKt7taAagQgY2ohXkcCNPT6NdNdoHuGKvFJBKERuCWWWom8l0KiT2cJdWzssvGYVG8IHBlf+BJt1VoZCrPAAHQ2vj1DfSb0h0Dd/ReZwWYdp4QOlUGmFDLI2yH3zioiXEDarWuEepLAz3sBL1hCf0/tQ5RN8se4lj3FETt2lnlUXCg8wZP9yj81X0bpbTS2bzHww8Tmlm0Z/xN2ZDIHBweST+6HN40KISlqn88Y3mQNwrn4ZWVH5SsEHU57gYW6vKXvN1kRAIQlQUvAcqDTMaBac5hpx1jm8QcKkgwa0HPkNlSyeJviao+akf+ieMYT/6CRTu8CdbRN5R8PVESxmU/lmORzH+ovrWGifbEnuAdah0rJgrvAjtj033JzUuglg+xcGdzESVvcz+vnm7HKh9C4kwKpKvrsAxMw4R9iIoHPOJz3WYGLs01cM2WiHMHdlD8B1AsZpSSHL2AZxa9I/1edzhYIUEKVQlg/s0NkM6QVEK2yWlWZ+oQ+Ln2yRdk=
