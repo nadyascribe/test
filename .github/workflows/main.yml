@@ -32,8 +32,8 @@ jobs:
            type: dir
            target: 'mongo-express-scm'
            scribe-enable: true
-           scribe-client-id: 1FcCB0ywsJ9LCHC3Nt0P4kyRrTvzenZ8
-           scribe-client-secret: TsVsLJXmSAog3eTZvIwEjkk0xoUmp4FhOTfx-elWQ0kiH8CyY5xkP8UqWaPqht-_
+           scribe-client-id: 9y9svuyNTsOrkE6eZ5fsncsHu4xHijLb
+           scribe-client-secret: fB4--LY0PlzcnRXN5u-Ns84HrGOPHUusD38ATBU3iJ2XrBymaAnrIqGIwQsOJtve
            product-key: "Demo_NADYATest"
            scribe-url: ${{ env.SCRIBE_URL }}
            scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
@@ -50,8 +50,8 @@ jobs:
           target: mongo-express:0.45
           scribe-enable: true
           format: attest-cyclonedx-json
-          scribe-client-id: 1FcCB0ywsJ9LCHC3Nt0P4kyRrTvzenZ8
-          scribe-client-secret: TsVsLJXmSAog3eTZvIwEjkk0xoUmp4FhOTfx-elWQ0kiH8CyY5xkP8UqWaPqht-_
+          scribe-client-id: 9y9svuyNTsOrkE6eZ5fsncsHu4xHijLb
+          scribe-client-secret: fB4--LY0PlzcnRXN5u-Ns84HrGOPHUusD38ATBU3iJ2XrBymaAnrIqGIwQsOJtve
           product-key: "Demo_NADYATest"
           scribe-url: ${{ env.SCRIBE_URL }}
           scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
