@@ -1,0 +1,79 @@
+name: dev_new_env_demo
+
+on: push
+    
+env:
+     SCRIBE_URL: "https://airflow.dev.scribesecurity.com/"
+     SCRIBE_LOGIN_URL: "https://scribe-hub-dev.us.auth0.com"
+     SCRIBE_AUDIENCE: "api.dev.scribesecurity.com"
+
+jobs:
+  scribe-report-test:
+    runs-on: ubuntu-latest
+    permissions:
+     id-token: write
+     
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/checkout@v3
+        with:
+          repository: mongo-express/mongo-express
+          ref: refs/tags/v1.0.0-alpha.4
+          path: mongo-express-scm
+
+      - name: Scm generate bom, upload to scribe
+        id: valint_bom_scm
+        uses: scribe-security/action-bom@master
+        with:
+           type: dir
+           target: 'mongo-express-scm'
+           scribe-enable: true
+           scribe-client-id: 9y9svuyNTsOrkE6eZ5fsncsHu4xHijLb
+           scribe-client-secret: fB4--LY0PlzcnRXN5u-Ns84HrGOPHUusD38ATBU3iJ2XrBymaAnrIqGIwQsOJtve
+           product-key: "Demo_NADYATest"
+           scribe-url: ${{ env.SCRIBE_URL }}
+           scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
+           scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
+
+
+      # Build and push your image - this example skips this step as we're using the published mongo express.
+
+      - name: Image generate bom, upload to scribe
+        id: valint_bom_image
+        uses: scribe-security/action-bom@master
+        with:
+          type: docker # To be included only if you want to to use docker daemon to access the image (for example, creating your docker image locally)
+          target: mongo-express:0.45
+          scribe-enable: true
+          format: attest-cyclonedx-json
+          scribe-client-id: 9y9svuyNTsOrkE6eZ5fsncsHu4xHijLb
+          scribe-client-secret: fB4--LY0PlzcnRXN5u-Ns84HrGOPHUusD38ATBU3iJ2XrBymaAnrIqGIwQsOJtve
+          product-key: "Demo_NADYATest"
+          scribe-url: ${{ env.SCRIBE_URL }}
+          scribe-login-url: ${{ env.SCRIBE_LOGIN_URL }}
+          scribe-audience: ${{ env.SCRIBE_AUDIENCE }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: scribe-reports
+          path: |
+            ${{ steps.valint_bom_scm.outputs.OUTPUT_PATH }}
+            ${{ steps.valint_bom_image.outputs.OUTPUT_PATH }}
+            
+      - name: Generate SLSA provenance statement
+        id: valint_slsa_statement
+        uses: scribe-security/action-bom@master
+        with:
+          target: mongo-express:0.45
+          format: statement-slsa
+          force: true
+          product-key: "Demo_NADYATest"
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: provenance
+          path: ${{ steps.valint_slsa_statement.outputs.OUTPUT_PATH }}     
